@@ -18,9 +18,9 @@ const HeaderItem = props => {
 class Header extends React.Component {
   render() {
     return (
-      <ul class="header">
+      <ul className="header">
         {this.props.headerItems.map(title => {
-          return <HeaderItem title={title} />;
+          return <HeaderItem key={title} title={title} />;
         })}
       </ul>
     );

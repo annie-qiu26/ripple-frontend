@@ -1,11 +1,18 @@
-import React from 'react';
-import { Flex } from "@chakra-ui/core";
-import './Card.css';
+import React from "react";
+import { Box } from "@chakra-ui/core";
+import "./Card.css";
 
-function Card() {
+function Card(props) {
   return (
-    <Flex></Flex>
-  )
+    <Box
+      className="card"
+      background={props.background}
+      width={props.width}
+      height={props.height}
+    >
+      {props.children}
+    </Box>
+  );
 }
 
 export default Card;
