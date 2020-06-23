@@ -1,6 +1,6 @@
 .header {
   margin: auto;
-  width: 28%;
+  width: 32%;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
   content: "";
   display: block;
   width: 0;
-  height: 3px;
+  height: 2px;
   background: black;
   transition: width 0.3s;
 }
@@ -25,13 +25,12 @@
   transition: width 0.3s;
 }
 
-.header-item a {
+.header-textbox {
   color: black;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 500;
   width: 100%;
-}
-
-.header-textbox {
-  padding: 0px 8px 0px 8px;
+  margin-top: 12px;
+  padding: 12px 8px 12px 8px;
 }
