@@ -1,8 +1,9 @@
 import React from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import ButtonR from "./components/Button";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
@@ -28,10 +29,31 @@ function App() {
         <ThemeProvider theme={newTheme}>
           <CSSReset />
           <Header headerItems={["Home", "Explore", "About"]} />
-          <Card background="#efefef" width="300px" height="300px">
-            <div>hi</div>
-            <div>This is an example of what a card looks like</div>
-          </Card>
+          {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+          <Switch>
+            <Route exact path="/">
+              <div>
+                <Link to={`/create`}>
+                  <ButtonR>Start a Rippl.it</ButtonR>
+                </Link>
+              </div>
+            </Route>
+            <Route path="/explore"></Route>
+            <Route path="/about">
+              <div>
+                <Card background="#efefef" width="300px" height="300px">
+                  <div>hi</div>
+                  <div>This is an example of what a card looks like</div>
+                </Card>
+              </div>
+            </Route>
+          </Switch>
         </ThemeProvider>
       </div>
     </Router>
