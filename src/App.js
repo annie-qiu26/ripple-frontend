@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
-import ButtonR from "./components/Button";
+import Home from "./screens/Home";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
@@ -38,11 +38,10 @@ function App() {
         */}
           <Switch>
             <Route exact path="/">
-              <div>
-                <Link to={`/create`}>
-                  <ButtonR>Start a Rippl.it</ButtonR>
-                </Link>
-              </div>
+              <Home />
+            </Route>
+            <Route exact path="/home">
+              <Home />
             </Route>
             <Route path="/explore"></Route>
             <Route path="/about">

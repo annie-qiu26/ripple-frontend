@@ -5,10 +5,11 @@ import "./Button.css";
 function ButtonR(props) {
   return (
     <Button
-      className="button"
+      className={props.className || "button"}
       background={props.background}
       width={props.width}
       height={props.height}
+      marginTop={props.marginTop}
     >
       {props.children}
     </Button>
