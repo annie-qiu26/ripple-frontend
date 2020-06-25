@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import Home from "./screens/Home";
+import Create from "./screens/Create";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
@@ -51,6 +52,9 @@ function App() {
                   <div>This is an example of what a card looks like</div>
                 </Card>
               </div>
+            </Route>
+            <Route exact path="/create">
+              <Create />
             </Route>
           </Switch>
         </ThemeProvider>
