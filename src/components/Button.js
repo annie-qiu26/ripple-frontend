@@ -9,6 +9,7 @@ function ButtonR(props) {
       background={props.background}
       width={props.width}
       height={props.height}
+      margin={props.margin}
       marginTop={props.marginTop}
       isLoading={props.isLoading}
       type={props.type}

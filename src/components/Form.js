@@ -5,9 +5,13 @@ import {
   FormErrorMessage,
   FormLabel,
   FormControl,
+  Text,
+  Flex,
   Input,
   Button,
-  Select
+  Select,
+  Tooltip,
+  Icon
 } from "@chakra-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -18,9 +22,13 @@ import "./Form.css";
 export default function HookForm() {
   const { handleSubmit, errors, register, formState } = useForm();
 
+  const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
+
   const CssTextField = withStyles({
     root: {
       "& .MuiOutlinedInput-root": {
+        borderRadius: "32px",
+        boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
         "&.Mui-focused fieldset": {
           borderColor: "#33AAFF"
         }
@@ -31,7 +39,7 @@ export default function HookForm() {
   function title() {
     return (
       <div className="form-items">
-        <FormLabel htmlFor="title" isRequired="true">
+        <FormLabel padding="8px 0px" htmlFor="title" isRequired="true">
           Title
         </FormLabel>
         <CssTextField
@@ -47,7 +55,7 @@ export default function HookForm() {
   function organizations() {
     return (
       <div className="form-items">
-        <FormLabel htmlFor="organizations" isRequired="true">
+        <FormLabel padding="8px 0px" htmlFor="organizations" isRequired="true">
           Organizations
         </FormLabel>
         <Autocomplete
@@ -78,7 +86,9 @@ export default function HookForm() {
   function email() {
     return (
       <div className="form-items">
-        <FormLabel htmlFor="email">Email</FormLabel>
+        <FormLabel padding="8px 0px" htmlFor="email">
+          Email
+        </FormLabel>
         <CssTextField
           name="title"
           placeholder="Optional, email"
@@ -92,7 +102,16 @@ export default function HookForm() {
     return (
       <div className="form-items">
         {/* TODO: Explain why location is needed*/}
-        <Checkbox>Share your location</Checkbox>
+        <Checkbox defaultIsChecked size="md">
+          <Flex className="form-checkbox-inner">
+            <Text fontSize="md" marginRight="4px">Share your location</Text>
+            <Tooltip label={LOCATION_TOOLTIP} placement="bottom">
+              <Flex className="form-checkbox-icon">
+                <Icon padding="1px" name="info-outline" />
+              </Flex>
+            </Tooltip>
+          </Flex>
+        </Checkbox>
       </div>
     );
   }
@@ -125,7 +144,11 @@ export default function HookForm() {
           {errors.name && errors.name.message}
         </FormErrorMessage>
       </FormControl>
-      <ButtonR isLoading={formState.isSubmitting} type="submit">
+      <ButtonR
+        margin="12px 0px"
+        isLoading={formState.isSubmitting}
+        type="submit"
+      >
         Submit
       </ButtonR>
     </form>
