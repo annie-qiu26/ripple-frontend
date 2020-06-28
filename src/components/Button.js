@@ -10,6 +10,8 @@ function ButtonR(props) {
       width={props.width}
       height={props.height}
       marginTop={props.marginTop}
+      isLoading={props.isLoading}
+      type={props.type}
     >
       {props.children}
     </Button>

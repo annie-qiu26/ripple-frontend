@@ -6,12 +6,96 @@ import {
   FormLabel,
   FormControl,
   Input,
-  Button
+  Button,
+  Select
 } from "@chakra-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import ButtonR from "./Button";
 import "./Form.css";
 
 export default function HookForm() {
   const { handleSubmit, errors, register, formState } = useForm();
+
+  const CssTextField = withStyles({
+    root: {
+      "& .MuiOutlinedInput-root": {
+        "&.Mui-focused fieldset": {
+          borderColor: "#33AAFF"
+        }
+      }
+    }
+  })(TextField);
+
+  function title() {
+    return (
+      <div className="form-items">
+        <FormLabel htmlFor="title" isRequired="true">
+          Title
+        </FormLabel>
+        <CssTextField
+          required
+          name="title"
+          placeholder="Give your rippl.it a fun title"
+          variant="outlined"
+        />
+      </div>
+    );
+  }
+
+  function organizations() {
+    return (
+      <div className="form-items">
+        <FormLabel htmlFor="organizations" isRequired="true">
+          Organizations
+        </FormLabel>
+        <Autocomplete
+          multiple
+          required
+          id="multi-select"
+          options={[
+            "cheesecake",
+            "photography",
+            "cake pops",
+            "almonds",
+            "mouse",
+            "long",
+            "ice cream"
+          ]}
+          renderInput={params => (
+            <CssTextField
+              {...params}
+              variant="outlined"
+              placeholder="Organizations"
+            />
+          )}
+        />
+      </div>
+    );
+  }
+
+  function email() {
+    return (
+      <div className="form-items">
+        <FormLabel htmlFor="email">Email</FormLabel>
+        <CssTextField
+          name="title"
+          placeholder="Optional, email"
+          variant="outlined"
+        />
+      </div>
+    );
+  }
+
+  function location() {
+    return (
+      <div className="form-items">
+        {/* TODO: Explain why location is needed*/}
+        <Checkbox>Share your location</Checkbox>
+      </div>
+    );
+  }
 
   function validateName(value) {
     let error;
@@ -24,6 +108,7 @@ export default function HookForm() {
   }
 
   function onSubmit(values) {
+    alert("hello");
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
     }, 1000);
@@ -32,40 +117,17 @@ export default function HookForm() {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={errors.name}>
-        <div className="form-items">
-          <FormLabel htmlFor="title" isRequired="true">
-            Title
-          </FormLabel>
-          <Input
-            name="title"
-            placeholder="Give your rippl.it a fun title"
-            ref={register({ validate: validateName })}
-          />
-        </div>
-        <div className="form-items">
-          <FormLabel htmlFor="email">Email</FormLabel>
-          <Input
-            name="email"
-            placeholder="Optional, email"
-            ref={register({ validate: validateName })}
-          />
-        </div>
-        <div className="form-items">
-          {/* TODO: Explain why location is needed*/}
-          <Checkbox>Share your location</Checkbox>
-        </div>
+        {title()}
+        {organizations()}
+        {email()}
+        {location()}
         <FormErrorMessage>
           {errors.name && errors.name.message}
         </FormErrorMessage>
       </FormControl>
-      <Button
-        mt={4}
-        variantColor="teal"
-        isLoading={formState.isSubmitting}
-        type="submit"
-      >
+      <ButtonR isLoading={formState.isSubmitting} type="submit">
         Submit
-      </Button>
+      </ButtonR>
     </form>
   );
 }

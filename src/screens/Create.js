@@ -7,7 +7,7 @@ import "./Create.css";
 class Create extends React.Component {
   render() {
     return (
-      <Flex className="create">
+      <Flex className="create" width={{ md: "stretch", lg: "64%", xl: "32%"}}>
         <Form />
       </Flex>
     );

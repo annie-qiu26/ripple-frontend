@@ -7,7 +7,7 @@ import "./Home.css";
 class Home extends React.Component {
   render() {
     return (
-      <Flex className="home">
+      <Flex className="home" width={{ sm: "stretch", md: "36%" }}>
         <div className="home-inner">
           <Heading size="lg" color="#33AAFF">
             rippl.it
