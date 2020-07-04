@@ -1,14 +1,17 @@
 .header {
   margin: auto;
-  width: 32%;
-  padding: 0;
-  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.header-list {
   justify-content: space-between;
 }
 
 .header-item {
   display: inline-block;
-  flex: 0 1 auto;
 }
 
 .header-item::after {
@@ -32,5 +35,11 @@
   font-weight: 500;
   width: 100%;
   margin-top: 12px;
-  padding: 12px 8px 12px 8px;
+  padding: 0px 8px 12px 8px;
+}
+
+@media screen and (max-width: 450px) {
+  .header-list {
+    flex-direction: column;
+  }
 }

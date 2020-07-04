@@ -1,6 +1,6 @@
 .home {
   align-items: center;
-  min-height: 88%; /* TODO: Figure out how to fill height to remaining space */
+  min-height: 80%; /* TODO: Figure out how to fill height to remaining space */
   flex-direction: row;
   margin-left: 12%;
   text-align: left;
