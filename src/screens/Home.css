@@ -3,18 +3,16 @@
   min-height: 80%; /* TODO: Figure out how to fill height to remaining space */
   flex-direction: row;
   margin-left: 12%;
+  margin-right: 12%;
   text-align: left;
 }
 
 .home * {
+  width: 100%
+}
+
+.home-text * {
   margin: 12px 0px 12px 0px;
-}
-
-.home-inner {
-}
-
-.start-button {
-  margin-top: 20px;
 }
 
 .learn-more {

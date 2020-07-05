@@ -19,7 +19,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import ButtonR from "./Button";
 import "./Form.css";
 
-export default function HookForm() {
+function Form() {
   const { handleSubmit, errors, register, formState } = useForm();
 
   const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
@@ -154,3 +154,5 @@ export default function HookForm() {
     </form>
   );
 }
+
+export default Form;

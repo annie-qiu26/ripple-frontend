@@ -6,13 +6,10 @@ function ButtonR(props) {
   return (
     <Button
       className={props.className || "button"}
-      background={props.background}
-      width={props.width}
-      height={props.height}
-      margin={props.margin}
-      marginTop={props.marginTop}
+      borderRadius="32px"
       isLoading={props.isLoading}
       type={props.type}
+      {...props}
     >
       {props.children}
     </Button>
