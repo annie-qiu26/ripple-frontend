@@ -4,6 +4,7 @@ import { Box, Heading, Flex, Text } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
+
 class Home extends React.Component {
   render() {
     return (
@@ -17,11 +18,14 @@ class Home extends React.Component {
             See Your Ripple.
           </Heading>
           <Text fontSize="lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore.
+          Your action of sharing a link to a cause in need makes an impact. 
+          With rippl.it, you can now track the generations of support you have helped raise. 
+          Watch your ripple grow one share at a time. 
+
+         <br/> <a href= "/about" className= "learn-more"> Learn More </a> 
+
           </Text>
+
           <Link to={`/create`}>
             <ButtonR marginTop="20px">Start a Rippl.it</ButtonR>
           </Link>
@@ -32,3 +36,4 @@ class Home extends React.Component {
 }
 
 export default Home;
+
