@@ -36,7 +36,7 @@ export default function HookForm() {
     }
   })(TextField);
 
-  function title() {
+  function Title() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="title" isRequired="true">
@@ -52,7 +52,7 @@ export default function HookForm() {
     );
   }
 
-  function organizations() {
+  function Organizations() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="organizations" isRequired="true">
@@ -83,7 +83,7 @@ export default function HookForm() {
     );
   }
 
-  function email() {
+  function Email() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="email">
@@ -98,7 +98,7 @@ export default function HookForm() {
     );
   }
 
-  function location() {
+  function Location() {
     return (
       <div className="form-items">
         {/* TODO: Explain why location is needed*/}
@@ -136,10 +136,10 @@ export default function HookForm() {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={errors.name}>
-        {title()}
-        {organizations()}
-        {email()}
-        {location()}
+        {Title()}
+        {Organizations()}
+        {Email()}
+        {Location()}
         <FormErrorMessage>
           {errors.name && errors.name.message}
         </FormErrorMessage>

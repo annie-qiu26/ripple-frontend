@@ -1,7 +1,5 @@
 .card {
   display:inline-block;
-  padding: 12px;
-  margin: 12px;
   border-radius: 32px;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
 }
