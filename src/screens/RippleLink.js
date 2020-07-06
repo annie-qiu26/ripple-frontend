@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import { Box, Heading, Flex, Text } from "@chakra-ui/core";
-import { useParams } from "react-router-dom";
 import { getRipple } from "../api/ripple";
-import "./Ripple.css";
+import { getLink } from "../api/link";
+import { useParams } from "react-router-dom";
+import "./RippleLink.css";
 
 function Organization(props) {
   return (
@@ -14,13 +15,18 @@ function Organization(props) {
   )
 }
 
-function Ripple() {
-  const { rippleID } = useParams();
+function RippleLink(props) {
+  const { linkID } = useParams();
   const [ripple, setRipple] = useState({});
+  const [link, setLink] = useState({});
 
   useEffect(() => {
-    getRipple(rippleID).then(res => setRipple(res));
-  }, [rippleID]);
+    getLink(linkID).then(res => {
+      setLink(res.link);
+      setRipple(res.ripple);
+    });
+  }, [linkID]);
+
 
   return (
     <Flex
@@ -32,7 +38,9 @@ function Ripple() {
     >
       <Flex width="28%">
         <Text fontWeight="bold">
-        {JSON.stringify(ripple)}
+          {JSON.stringify(link)}
+          {JSON.stringify(ripple)}
+
           Welcome, welcome! Thanks for being the 18th visitor! Your friend wants
           to share these amazing organizations with you. If you're inclined,
           feel free to learn more about them through these links, and if you're
@@ -47,11 +55,16 @@ function Ripple() {
           margin="24px 0px 24px 0px"
           padding="24px"
         >
-          <Flex>Rippl.it Token: {rippleID}</Flex>
+          <Flex>Rippl.it Token: {link._id}</Flex>
           <Organization />
           <Organization />
           <Organization />
         </Card>
+      </Flex>
+      <Flex width="28%">
+        <Text>
+          Spread this movement! You can generate a new link to share and track your influence.
+        </Text>
       </Flex>
       <Flex width="28%">
         <Text>
@@ -65,10 +78,10 @@ function Ripple() {
           background="#F3F3F3"
           borderRadius="32px"
           padding="8px 8px 8px 16px"
-        >{`rippl.its/ripplits/${rippleID}`}</Box>
+        >{`rippl.its/ripplits/${link._id}`}</Box>
       </Flex>
     </Flex>
   );
 }
 
-export default Ripple;
+export default RippleLink;

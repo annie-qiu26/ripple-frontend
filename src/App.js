@@ -4,7 +4,7 @@ import Card from "./components/Card";
 import Home from "./screens/Home";
 import Create from "./screens/Create";
 import Explore from "./screens/Explore";
-import Ripple from "./screens/Ripple";
+import RippleLink from "./screens/RippleLink";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/create">
               <Create />
             </Route>
-            <Route path="/ripplits/:rippleID" children={<Ripple />}/>
+            <Route path="/ripplits/:linkID" children={<RippleLink />}/>
           </Switch>
         </ThemeProvider>
       </div>
