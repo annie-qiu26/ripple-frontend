@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/create">
               <Create />
             </Route>
-            <Route path="/ripplits/:rippleId" children={<Ripple />}/>
+            <Route path="/ripplits/:rippleID" children={<Ripple />}/>
           </Switch>
         </ThemeProvider>
       </div>

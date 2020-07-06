@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import { Box, Heading, Flex, Text } from "@chakra-ui/core";
 import { useParams } from "react-router-dom";
+import { getRipple } from "../api/ripple";
 import "./Ripple.css";
 
 function Organization(props) {
@@ -14,7 +15,12 @@ function Organization(props) {
 }
 
 function Ripple() {
-  const { rippleId } = useParams();
+  const { rippleID } = useParams();
+  const [ripple, setRipple] = useState({});
+
+  useEffect(() => {
+    getRipple(rippleID).then(res => setRipple(res));
+  }, [rippleID]);
 
   return (
     <Flex
@@ -26,6 +32,7 @@ function Ripple() {
     >
       <Flex width="28%">
         <Text fontWeight="bold">
+        {JSON.stringify(ripple)}
           Welcome, welcome! Thanks for being the 18th visitor! Your friend wants
           to share these amazing organizations with you. If you're inclined,
           feel free to learn more about them through these links, and if you're
@@ -40,7 +47,7 @@ function Ripple() {
           margin="24px 0px 24px 0px"
           padding="24px"
         >
-          <Flex>Rippl.it Token: {rippleId}</Flex>
+          <Flex>Rippl.it Token: {rippleID}</Flex>
           <Organization />
           <Organization />
           <Organization />
@@ -58,7 +65,7 @@ function Ripple() {
           background="#F3F3F3"
           borderRadius="32px"
           padding="8px 8px 8px 16px"
-        >{`rippl.its/${rippleId}`}</Box>
+        >{`rippl.its/ripplits/${rippleID}`}</Box>
       </Flex>
     </Flex>
   );
