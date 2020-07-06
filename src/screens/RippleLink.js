@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/Card";
+import { useParams, useHistory } from "react-router-dom";
 import { Box, Heading, Flex, Text } from "@chakra-ui/core";
+
+import Card from "../components/Card";
+import ButtonR from "../components/Button";
+
 import { getRipple } from "../api/ripple";
-import { getLink } from "../api/link";
+import { generateLink, getLink } from "../api/link";
 import { getOrganization } from "../api/organization";
-import { useParams } from "react-router-dom";
 import "./RippleLink.css";
 
 function Organization(props) {
@@ -26,6 +29,8 @@ function Organization(props) {
 
 function RippleLink(props) {
   const { linkID } = useParams();
+  const history = useHistory();
+
   const [ripple, setRipple] = useState({});
   const [link, setLink] = useState({});
 
@@ -76,6 +81,10 @@ function RippleLink(props) {
         <Text>
           Spread this movement! You can generate a new link to share and track your influence.
         </Text>
+      </Flex>
+      <Flex width="28%" marginTop="12px">
+        <ButtonR
+          onClick={ () => generateLink(link._id).then(res => history.push(`/ripplits/${res.link_id}`)) }>Generate</ButtonR>
       </Flex>
       <Flex width="28%">
         <Text>
