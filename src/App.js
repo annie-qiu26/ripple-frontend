@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Card from "./components/Card";
 import Home from "./screens/Home";
 import Create from "./screens/Create";
+import Explore from "./screens/Explore";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
@@ -44,7 +45,9 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-            <Route path="/explore"></Route>
+            <Route path="/explore">
+              <Explore />
+            </Route>
             <Route path="/about">
               <div>
                 <Card background="#efefef" width="300px" height="300px">
