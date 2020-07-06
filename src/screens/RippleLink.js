@@ -3,14 +3,23 @@ import Card from "../components/Card";
 import { Box, Heading, Flex, Text } from "@chakra-ui/core";
 import { getRipple } from "../api/ripple";
 import { getLink } from "../api/link";
+import { getOrganization } from "../api/organization";
 import { useParams } from "react-router-dom";
 import "./RippleLink.css";
 
 function Organization(props) {
+  const [organization, setOrganization] = useState({});
+
+  useEffect(() => {
+    getOrganization(props.id).then(res => {
+      setOrganization(res);
+    });
+  }, [props.id]);
+
   return (
     <Flex flexDirection="column">
-      <Text fontWeight="bold">Organization Name</Text>
-      <Text><a href="http://www.google.com">www.google.com</a></Text>
+      <Text fontWeight="bold">{organization.name}</Text>
+      <Text><a href="http://www.google.com">{organization.url}</a></Text>
     </Flex>
   )
 }
@@ -56,9 +65,11 @@ function RippleLink(props) {
           padding="24px"
         >
           <Flex>Rippl.it Token: {link._id}</Flex>
-          <Organization />
-          <Organization />
-          <Organization />
+          {ripple.organizations?.map(orgID => (
+            <Organization
+              key={orgID}
+              id={orgID}/>
+          ))}
         </Card>
       </Flex>
       <Flex width="28%">
