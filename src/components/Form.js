@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import React from "react";
 import {
   Checkbox,
   FormErrorMessage,
@@ -20,23 +20,29 @@ import ButtonR from "./Button";
 import "./Form.css";
 
 import { createRipple } from "../api/ripple";
+import { listOrganizations } from "../api/organization";
 
-function Form() {
-  const { handleSubmit, errors, register, formState } = useForm();
+const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
 
-  const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
-
-  const CssTextField = withStyles({
-    root: {
-      "& .MuiOutlinedInput-root": {
-        borderRadius: "32px",
-        boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-        "&.Mui-focused fieldset": {
-          borderColor: "#33AAFF"
-        }
+const CssTextField = withStyles({
+  root: {
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "32px",
+      boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
+      "&.Mui-focused fieldset": {
+        borderColor: "#33AAFF"
       }
     }
-  })(TextField);
+  }
+})(TextField);
+
+function Form() {
+  const [organizations, setOrganizations] = useState([]);
+  const { handleSubmit, errors, register, formState } = useForm();
+
+  useEffect(() => {
+    listOrganizations().then(res => setOrganizations(res.organizations))
+  }, []);
 
   function Title() {
     return (
@@ -64,15 +70,8 @@ function Form() {
           multiple
           required
           id="multi-select"
-          options={[
-            "cheesecake",
-            "photography",
-            "cake pops",
-            "almonds",
-            "mouse",
-            "long",
-            "ice cream"
-          ]}
+          options={organizations}
+          getOptionLabel={(option) => option.name}
           renderInput={params => (
             <CssTextField
               {...params}
