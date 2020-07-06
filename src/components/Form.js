@@ -19,6 +19,8 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import ButtonR from "./Button";
 import "./Form.css";
 
+import { createRipple } from "../api/ripple";
+
 export default function HookForm() {
   const { handleSubmit, errors, register, formState } = useForm();
 
@@ -127,10 +129,7 @@ export default function HookForm() {
   }
 
   function onSubmit(values) {
-    alert("hello");
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-    }, 1000);
+    console.log(process.env);
   }
 
   return (
