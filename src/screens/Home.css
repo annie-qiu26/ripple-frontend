@@ -1,19 +1,21 @@
 .home {
   align-items: center;
-  min-height: 88%; /* TODO: Figure out how to fill height to remaining space */
+  min-height: 80%; /* TODO: Figure out how to fill height to remaining space */
   flex-direction: row;
   margin-left: 12%;
+  margin-right: 12%;
   text-align: left;
 }
 
 .home * {
-  margin: 12px 0px 12px 0px
+  width: 100%
 }
 
-.home-inner {
-
+.home-text * {
+  margin: 12px 0px 12px 0px;
 }
 
-.start-button {
-  margin-top: 20px;
+.learn-more {
+  color: gray;
+  font-size: 16px;
 }

@@ -9,6 +9,7 @@ function Card(props) {
       background={props.background}
       width={props.width}
       height={props.height}
+      {...props}
     >
       {props.children}
     </Box>

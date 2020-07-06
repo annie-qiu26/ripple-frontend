@@ -8,7 +8,7 @@ class Create extends React.Component {
   render() {
     return (
       <Flex className="create" width={{ md: "stretch", lg: "768px", xl: "768px"}}>
-        <Heading margin="40px 0px 40px 0px">Hi there! Cute greeting to make this form more friendly.</Heading>
+        <Heading margin="28px 0px 28px 0px">Hi there! Cute greeting to make this form more friendly.</Heading>
         <Form />
       </Flex>
     );

@@ -21,7 +21,7 @@ import "./Form.css";
 
 import { createRipple } from "../api/ripple";
 
-export default function HookForm() {
+function Form() {
   const { handleSubmit, errors, register, formState } = useForm();
 
   const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
@@ -38,7 +38,7 @@ export default function HookForm() {
     }
   })(TextField);
 
-  function title() {
+  function Title() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="title" isRequired="true">
@@ -54,7 +54,7 @@ export default function HookForm() {
     );
   }
 
-  function organizations() {
+  function Organizations() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="organizations" isRequired="true">
@@ -85,7 +85,7 @@ export default function HookForm() {
     );
   }
 
-  function email() {
+  function Email() {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="email">
@@ -100,7 +100,7 @@ export default function HookForm() {
     );
   }
 
-  function location() {
+  function Location() {
     return (
       <div className="form-items">
         {/* TODO: Explain why location is needed*/}
@@ -135,10 +135,10 @@ export default function HookForm() {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={errors.name}>
-        {title()}
-        {organizations()}
-        {email()}
-        {location()}
+        {Title()}
+        {Organizations()}
+        {Email()}
+        {Location()}
         <FormErrorMessage>
           {errors.name && errors.name.message}
         </FormErrorMessage>
@@ -153,3 +153,5 @@ export default function HookForm() {
     </form>
   );
 }
+
+export default Form;
