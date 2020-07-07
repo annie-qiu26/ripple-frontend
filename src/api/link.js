@@ -14,5 +14,8 @@ export async function generateLink(parentId, userId, locationOn) {
 }
 
 export async function getLink(id) {
-  return await apiJSON(`${process.env.REACT_APP_HOSTNAME}/api/link/${id}`);
+  return await apiJSON(`${process.env.REACT_APP_HOSTNAME}/api/link/${id}`, {
+    method: "POST",
+    credentials: 'include',
+  });
 }
