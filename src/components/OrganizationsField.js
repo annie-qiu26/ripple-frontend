@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { withStyles } from "@material-ui/core/styles";
 import { Controller } from "react-hook-form";
+
+import { listOrganizations } from "../api/organization";
 
 const CssTextField = withStyles({
   root: {
@@ -16,7 +18,13 @@ const CssTextField = withStyles({
   }
 })(TextField);
 
-export default function CountrySelect({ onChange, control, organizations }) {
+function OrganizationsField({ onChange, control }) {
+   const [organizations, setOrganizations] = useState([]);
+
+  useEffect(() => {
+    listOrganizations().then(res => setOrganizations(res.organizations));
+  }, []);
+
   return (
     <Controller
       as={
@@ -39,3 +47,5 @@ export default function CountrySelect({ onChange, control, organizations }) {
     />
   );
 }
+
+export default OrganizationsField;

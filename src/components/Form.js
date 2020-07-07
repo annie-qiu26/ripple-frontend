@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useForm, Controller } from "react-hook-form";
+import React from "react";
+import { useForm } from "react-hook-form";
 import {
   Checkbox,
   FormErrorMessage,
@@ -7,21 +7,16 @@ import {
   FormControl,
   Text,
   Flex,
-  Input,
-  Button,
-  Select,
   Tooltip,
   Icon
 } from "@chakra-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import OrganizationsField from "./OrganizationsField";
 import ButtonR from "./Button";
 import "./Form.css";
 
 import { createRipple } from "../api/ripple";
-import { listOrganizations } from "../api/organization";
 
 const LOCATION_TOOLTIP =
   "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled.";
@@ -39,12 +34,7 @@ const CssTextField = withStyles({
 })(TextField);
 
 function Form() {
-  const [organizations, setOrganizations] = useState([]);
   const { handleSubmit, errors, register, formState, control } = useForm();
-
-  useEffect(() => {
-    listOrganizations().then(res => setOrganizations(res.organizations));
-  }, []);
 
   function Title() {
     return (
@@ -69,7 +59,7 @@ function Form() {
         <FormLabel padding="8px 0px" htmlFor="organizations" isRequired="true">
           Organizations
         </FormLabel>
-        <OrganizationsField className="form-items" control={control} organizations={organizations} />
+        <OrganizationsField className="form-items" control={control} />
       </div>
     );
   }

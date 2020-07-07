@@ -20,11 +20,20 @@ function Organization(props) {
   }, [props.id]);
 
   return (
-    <Flex flexDirection="column">
+    <Card
+          background="#FFF7A7"
+          width="100%"
+          margin="24px 0px 24px 0px"
+          padding="24px"
+          maxWidth="280px"
+          minHeight="120px"
+        >
       <Text fontWeight="bold">{organization.name}</Text>
-      <Text><a href="http://www.google.com">{organization.url}</a></Text>
-    </Flex>
-  )
+      <Text>
+        <a href="http://www.google.com">{organization.url}</a>
+      </Text>
+    </Card>
+  );
 }
 
 function RippleLink(props) {
@@ -41,7 +50,6 @@ function RippleLink(props) {
     });
   }, [linkID]);
 
-
   return (
     <Flex
       flexDirection="column"
@@ -50,11 +58,10 @@ function RippleLink(props) {
       textAlign="left"
       height="80%"
     >
-      <Flex width="28%">
-        <Text fontWeight="bold">
-          {JSON.stringify(link)}
-          {JSON.stringify(ripple)}
-
+      <Flex width="64%">
+        <Text fontWeight="bold" marginLeft="12px">
+          {/* {JSON.stringify(link)}
+          {JSON.stringify(ripple)} */}
           Welcome, welcome! Thanks for being the 18th visitor! Your friend wants
           to share these amazing organizations with you. If you're inclined,
           feel free to learn more about them through these links, and if you're
@@ -62,42 +69,50 @@ function RippleLink(props) {
           inspired.
         </Text>
       </Flex>
-      <Flex width="28%">
+      <Flex width="64%" justifyContent="space-between" flexWrap="wrap">
         <Card
           background="#FFF7A7"
-          width="1000px"
+          width="100%"
           margin="24px 0px 24px 0px"
           padding="24px"
+          maxWidth="280px"
+          minHeight="120px"
         >
           <Flex>Rippl.it Token: {link._id}</Flex>
-          {ripple.organizations?.map(orgID => (
-            <Organization
-              key={orgID}
-              id={orgID}/>
-          ))}
         </Card>
+        {ripple.organizations?.map(orgID => (
+            <Organization key={orgID} id={orgID} />
+          ))}
       </Flex>
-      <Flex width="28%">
+      <Flex width="64%" marginLeft="12px">
         <Text>
-          Spread this movement! You can generate a new link to share and track your influence.
+          Spread this movement! You can generate a new link to share and track
+          your influence.{" "}
+          <ButtonR
+            marginLeft="8px"
+            height="24px"
+            onClick={() =>
+              generateLink(link._id).then(res =>
+                history.push(`/ripplits/${res.link_id}`)
+              )
+            }
+          >
+            >
+          </ButtonR>
         </Text>
+        <Flex></Flex>
       </Flex>
-      <Flex width="28%" marginTop="12px">
-        <ButtonR
-          onClick={ () => generateLink(link._id).then(res => history.push(`/ripplits/${res.link_id}`)) }>Generate</ButtonR>
-      </Flex>
-      <Flex width="28%">
+      <Flex width="64%" marginTop="12px" marginLeft="12px">
         <Text>
           Or, you can continue sharing this link if you don't want to track your
           own stats.
         </Text>
       </Flex>
-      <Flex width="28%" marginTop="12px">
+      <Flex width="64%" marginTop="12px">
         <Box
-          width="32%"
           background="#F3F3F3"
           borderRadius="32px"
-          padding="8px 8px 8px 16px"
+          padding="8px 16px 8px 16px"
         >{`rippl.its/ripplits/${link._id}`}</Box>
       </Flex>
     </Flex>
