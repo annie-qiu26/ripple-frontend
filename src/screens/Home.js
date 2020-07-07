@@ -5,7 +5,6 @@ import { Link, useHistory } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
-  console.log(process.env)
   const [searchError, setSearchError] = useState(false);
 
   const history = useHistory();

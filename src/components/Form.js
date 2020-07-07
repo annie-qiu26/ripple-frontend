@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import {
   Checkbox,
   FormErrorMessage,
@@ -34,6 +35,7 @@ const CssTextField = withStyles({
 })(TextField);
 
 function Form() {
+  const history = useHistory();
   const { handleSubmit, errors, register, formState, control } = useForm();
 
   function Title() {
@@ -113,7 +115,8 @@ function Form() {
   }
 
   function onSubmit(values, e) {
-    console.log(values);
+    const { title, organizations, email } = values;
+    createRipple(title, organizations.map(org => org._id)).then(res => history.push(`/ripplits/${res.link_id}`));
   }
 
   return (
