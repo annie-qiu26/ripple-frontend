@@ -78,7 +78,7 @@ function RippleLink(props) {
           maxWidth="280px"
           minHeight="120px"
         >
-          <Flex>Rippl.it Token: {linkID}</Flex>
+          <Flex>Rippl.it Token: {link._id}</Flex>
         </Card>
         {ripple.organizations?.map(orgID => (
             <Organization key={orgID} id={orgID} />
@@ -92,7 +92,7 @@ function RippleLink(props) {
             marginLeft="8px"
             height="24px"
             onClick={() =>
-              generateLink(linkID).then(res =>
+              generateLink(link._id).then(res =>
                 history.push(`/ripplits/${res.link_id}`)
               )
             }
@@ -113,7 +113,7 @@ function RippleLink(props) {
           background="#F3F3F3"
           borderRadius="32px"
           padding="8px 16px 8px 16px"
-        >{`rippl.its/ripplits/${linkID}`}</Box>
+        >{`rippl.its/ripplits/${link._id}`}</Box>
       </Flex>
     </Flex>
   );
