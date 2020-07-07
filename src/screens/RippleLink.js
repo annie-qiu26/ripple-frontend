@@ -21,16 +21,16 @@ function Organization(props) {
 
   return (
     <Card
-          background="#FFF7A7"
-          width="100%"
-          margin="24px 0px 24px 0px"
-          padding="24px"
-          maxWidth="280px"
-          minHeight="120px"
-        >
+      background="#FFF7A7"
+      width="100%"
+      margin="24px 0px 24px 0px"
+      padding="24px"
+      maxWidth="280px"
+      minHeight="120px"
+    >
       <Text fontWeight="bold">{organization.name}</Text>
       <Text>
-        <a href="http://www.google.com">{organization.url}</a>
+        <a target="_blank" rel="noopener noreferrer" href={organization.url}>{organization.url}</a>
       </Text>
     </Card>
   );
@@ -96,9 +96,8 @@ function RippleLink(props) {
                 history.push(`/ripplits/${res.link_id}`)
               )
             }
-          >
-            >
-          </ButtonR>
+            rightIcon="arrow-forward"
+          />
         </Text>
         <Flex></Flex>
       </Flex>
