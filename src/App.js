@@ -60,7 +60,7 @@ function App() {
             <Route exact path="/create">
               <Create />
             </Route>
-            <Route path="/ripplits/:linkID" children={<RippleLink />}/>
+            <Route path="/ripplits/:linkID" render={ props => <RippleLink key={props.match.params.linkID} />}/>
           </Switch>
         </ThemeProvider>
       </div>
