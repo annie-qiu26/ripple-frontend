@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import {
   Checkbox,
   FormErrorMessage,
@@ -16,13 +16,15 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import OrganizationsField from "./OrganizationsField";
 import ButtonR from "./Button";
 import "./Form.css";
 
 import { createRipple } from "../api/ripple";
 import { listOrganizations } from "../api/organization";
 
-const LOCATION_TOOLTIP = "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled."
+const LOCATION_TOOLTIP =
+  "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled.";
 
 const CssTextField = withStyles({
   root: {
@@ -38,10 +40,10 @@ const CssTextField = withStyles({
 
 function Form() {
   const [organizations, setOrganizations] = useState([]);
-  const { handleSubmit, errors, register, formState } = useForm();
+  const { handleSubmit, errors, register, formState, control } = useForm();
 
   useEffect(() => {
-    listOrganizations().then(res => setOrganizations(res.organizations))
+    listOrganizations().then(res => setOrganizations(res.organizations));
   }, []);
 
   function Title() {
@@ -55,33 +57,33 @@ function Form() {
           name="title"
           placeholder="Give your rippl.it a fun title"
           variant="outlined"
+          inputRef={register({ required: true })}
         />
       </div>
     );
   }
 
-  function Organizations() {
+  function Organizations(control) {
     return (
       <div className="form-items">
         <FormLabel padding="8px 0px" htmlFor="organizations" isRequired="true">
           Organizations
         </FormLabel>
-        <Autocomplete
-          multiple
-          required
-          id="multi-select"
-          options={organizations}
-          getOptionLabel={(option) => option.name}
-          renderInput={params => (
-            <CssTextField
-              {...params}
-              variant="outlined"
-              placeholder="Organizations"
-            />
-          )}
-        />
+        <OrganizationsField className="form-items" control={control} organizations={organizations} />
       </div>
     );
+  }
+
+  function validateEmail(value) {
+    let error;
+
+    if (!value) {
+      return;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+      error = "Invalid email address";
+    }
+
+    return error;
   }
 
   function Email() {
@@ -91,9 +93,10 @@ function Form() {
           Email
         </FormLabel>
         <CssTextField
-          name="title"
+          name="email"
           placeholder="Optional, email"
           variant="outlined"
+          inputRef={register({ validate: validateEmail })}
         />
       </div>
     );
@@ -105,7 +108,9 @@ function Form() {
         {/* TODO: Explain why location is needed*/}
         <Checkbox defaultIsChecked size="md">
           <Flex className="form-checkbox-inner">
-            <Text fontSize="md" marginRight="4px">Share your location</Text>
+            <Text fontSize="md" marginRight="4px">
+              Share your location
+            </Text>
             <Tooltip label={LOCATION_TOOLTIP} placement="bottom">
               <Flex className="form-checkbox-icon">
                 <Icon padding="1px" name="info-outline" />
@@ -117,29 +122,19 @@ function Form() {
     );
   }
 
-  function validateName(value) {
-    let error;
-    if (!value) {
-      error = "Name is required";
-    } else if (value !== "Naruto") {
-      error = "Jeez! You're not a fan 😱";
-    }
-    return error || true;
-  }
-
-  function onSubmit(values) {
-    console.log(process.env);
+  function onSubmit(values, e) {
+    console.log(values);
   }
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <FormControl isInvalid={errors.name}>
+      <FormControl isInvalid={errors.email}>
         {Title()}
-        {Organizations()}
+        {Organizations(control)}
         {Email()}
         {Location()}
         <FormErrorMessage>
-          {errors.name && errors.name.message}
+          {errors.email && errors.email.message}
         </FormErrorMessage>
       </FormControl>
       <ButtonR
