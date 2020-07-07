@@ -4,6 +4,7 @@ import { Box, Heading, Flex, Text } from "@chakra-ui/core";
 
 import Card from "../components/Card";
 import ButtonR from "../components/Button";
+import WrappedMessage from "../components/WrappedMessage";
 
 import { getRipple } from "../api/ripple";
 import { generateLink, getLink } from "../api/link";
@@ -42,6 +43,16 @@ function RippleLink(props) {
 
   const [ripple, setRipple] = useState({});
   const [link, setLink] = useState({});
+
+  const copyLink = () => {
+    const el = document.createElement('textarea');
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    props.setSuccess("Link copied!");
+  };
 
   useEffect(() => {
     getLink(linkID).then(res => {
@@ -108,14 +119,15 @@ function RippleLink(props) {
         </Text>
       </Flex>
       <Flex width="64%" marginTop="12px">
-        <Box
+        <ButtonR
           background="#F3F3F3"
           borderRadius="32px"
           padding="8px 16px 8px 16px"
-        >{`rippl.its/ripplits/${link._id}`}</Box>
+          onClick={() => copyLink()}
+        >{`rippl.its/ripplits/${link._id}`}</ButtonR>
       </Flex>
     </Flex>
   );
 }
 
-export default RippleLink;
+export default WrappedMessage(RippleLink);
