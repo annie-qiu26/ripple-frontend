@@ -21,19 +21,12 @@ function Organization(props) {
   }, [props.id]);
 
   return (
-    <Card
-      background="#FFF7A7"
-      width="100%"
-      margin="24px 0px 24px 0px"
-      padding="24px"
-      maxWidth="280px"
-      minHeight="120px"
-    >
+    <div>
       <Text fontWeight="bold">{organization.name}</Text>
       <Text>
         <a target="_blank" rel="noopener noreferrer" href={organization.url}>{organization.url}</a>
       </Text>
-    </Card>
+    </div>
   );
 }
 
@@ -43,6 +36,7 @@ function RippleLink(props) {
 
   const [ripple, setRipple] = useState({});
   const [link, setLink] = useState({});
+  const [viewNo, setViewNo] = useState(undefined);
 
   const copyLink = () => {
     const el = document.createElement('textarea');
@@ -58,6 +52,7 @@ function RippleLink(props) {
     getLink(linkID).then(res => {
       setLink(res.link);
       setRipple(res.ripple);
+      setViewNo(res.view_no);
     });
   }, [linkID]);
 
@@ -73,7 +68,7 @@ function RippleLink(props) {
         <Text fontWeight="bold" marginLeft="12px">
           {/* {JSON.stringify(link)}
           {JSON.stringify(ripple)} */}
-          Welcome, welcome! Thanks for being the 18th visitor! Your friend wants
+          Welcome, welcome! Thanks for being visitor #{viewNo}! Your friend wants
           to share these amazing organizations with you. If you're inclined,
           feel free to learn more about them through these links, and if you're
           even more inclined, share them with your friends if you've felt
@@ -91,9 +86,18 @@ function RippleLink(props) {
         >
           <Flex>Rippl.it Token: {link._id}</Flex>
         </Card>
-        {ripple.organizations?.map(orgID => (
+        <Card
+          background="#FFF7A7"
+          width="100%"
+          margin="24px 0px 24px 0px"
+          padding="24px"
+          maxWidth="280px"
+          minHeight="120px"
+        >
+          {ripple.organizations?.map(orgID => (
             <Organization key={orgID} id={orgID} />
           ))}
+        </Card>
       </Flex>
       <Flex width="64%" marginLeft="12px">
         <Text>
