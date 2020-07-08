@@ -54,13 +54,13 @@ function RippleLink(props) {
         justifyContent="center"
         height="100%"
         width="100%"
-        margin="0px 48px 0px 48px"
+        // margin="0px 48px 0px 48px"
       >
-        <Box width={{ md: "stretch", lg: "900px" }}>
+        <Box width={{ md: "60%" }}>
           <Flex
             flexDirection="column"
             justifyContent="center"
-            textAlign="left"
+            // textAlign="left"
             height="100%"
           >
             <Flex>
@@ -73,7 +73,7 @@ function RippleLink(props) {
                 Welcome, welcome! Thanks for being visitor #{viewNo}!
               </Heading>
             </Flex>
-            <Flex justifyContent="space-between" flexWrap="wrap">
+            <Flex justifyContent="space-around" flexWrap="wrap">
               <RippleStatCard
                 stat={link.total_unique_visitors}
                 field="visitors"
@@ -123,20 +123,20 @@ function RippleLink(props) {
             </Flex>
           </Flex>
         </Box>
-        <Box height="52%">
-        <Card
-          background="#FFF7A7"
-          height="200px"
-          width="400px"
-          textAlign="center"
-          padding="12px"
-          margin="48px"
-        >
-          <Text fontWeight="bold">Help these organizations, please</Text>
-          {ripple?.organizations?.map(orgID => (
-            <OrganizationCard key={orgID} id={orgID} />
-          ))}
-        </Card>
+        <Box>
+          <Card
+            background="#FFF7A7"
+            height="200px"
+            width="400px"
+            textAlign="center"
+            padding="12px"
+            margin="24px"
+          >
+            <Text fontWeight="bold">Help these organizations, please</Text>
+            {ripple?.organizations?.map(orgID => (
+              <OrganizationCard key={orgID} id={orgID} />
+            ))}
+          </Card>
         </Box>
       </Flex>
     );

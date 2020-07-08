@@ -10,7 +10,7 @@ function RippleStatCard(props) {
       width="100%"
       margin="24px 0px 24px 0px"
       padding="24px"
-      maxWidth="280px"
+      maxWidth="250px"
       minHeight="120px"
       textAlign="center"
     >
