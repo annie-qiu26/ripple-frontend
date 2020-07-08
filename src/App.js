@@ -61,7 +61,10 @@ function App() {
             <Route exact path="/create">
               <Create />
             </Route>
-            <Route path="/ripplits/:linkID" render={ props => <RippleLink key={props.match.params.linkID} />}/>
+            <Route
+              path="/ripplits/:linkID"
+              render={props => <RippleLink key={props.match.params.linkID} />}
+            />
             <Route exact path="/404">
               <NotFound />
             </Route>

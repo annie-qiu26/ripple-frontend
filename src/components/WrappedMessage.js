@@ -26,7 +26,7 @@ const WrappedMessage = WrappedComponent =>
     }, [disappearCallback]);
 
     return (
-      <div>
+      <div className="wrapped-message">
         <WrappedComponent
           {...props}
           setError={setErrorMessage}

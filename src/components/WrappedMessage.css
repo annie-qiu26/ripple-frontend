@@ -1,6 +1,10 @@
 .message-alert {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wrapped-message {
+  height: 80%;
 }
