@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import Create from "./screens/Create";
 import Explore from "./screens/Explore";
 import RippleLink from "./screens/RippleLink";
+import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
@@ -61,6 +62,9 @@ function App() {
               <Create />
             </Route>
             <Route path="/ripplits/:linkID" render={ props => <RippleLink key={props.match.params.linkID} />}/>
+            <Route exact path="/404">
+              <NotFound />
+            </Route>
           </Switch>
         </ThemeProvider>
       </div>
