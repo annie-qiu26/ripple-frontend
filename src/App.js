@@ -7,7 +7,7 @@ import Explore from "./screens/Explore";
 import RippleLink from "./screens/RippleLink";
 import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];

@@ -1,7 +1,6 @@
 import React from "react";
 import Form from "../components/Form";
-import { Box, Heading, Flex, Text } from "@chakra-ui/core";
-import { Link } from "react-router-dom";
+import { Heading, Flex } from "@chakra-ui/core";
 import "./Create.css";
 
 class Create extends React.Component {

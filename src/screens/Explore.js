@@ -1,7 +1,5 @@
 import React from "react";
-import Form from "../components/Form";
-import { Box, Heading, Flex, Text } from "@chakra-ui/core";
-import { Link } from "react-router-dom";
+import { Flex } from "@chakra-ui/core";
 import "./Explore.css";
 
 import { listRipples } from "../api/ripple";

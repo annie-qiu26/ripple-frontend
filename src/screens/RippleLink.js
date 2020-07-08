@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Box, Heading, Flex, Text } from "@chakra-ui/core";
+import { Flex, Text } from "@chakra-ui/core";
 
 import Card from "../components/Card";
 import ButtonR from "../components/Button";
 import WrappedMessage from "../components/WrappedMessage";
 
-import { getRipple } from "../api/ripple";
 import { generateLink, getLink } from "../api/link";
 import { getOrganization } from "../api/organization";
 import "./RippleLink.css";
@@ -58,7 +57,7 @@ function RippleLink(props) {
     }).catch(res => {
       history.push('/404');
     });
-  }, [linkID]);
+  }, [linkID, history]);
 
   if (loading) {
     return <div/>;

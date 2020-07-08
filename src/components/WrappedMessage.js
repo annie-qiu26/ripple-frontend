@@ -3,8 +3,6 @@ import debounce from "lodash/debounce";
 import {
   Alert,
   AlertIcon,
-  AlertTitle,
-  AlertDescription,
 } from "@chakra-ui/core";
 
 import './WrappedMessage.css';
