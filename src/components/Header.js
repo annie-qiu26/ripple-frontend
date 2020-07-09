@@ -6,10 +6,7 @@ import "./Header.css";
 const HeaderItem = props => {
   return (
     <Link
-      className="header-item"
-      mt={{ base: 4, md: 0 }}
-      mr={6}
-      display="block"
+      className="header-item nav-item mx-5 px-4"
       to={`/${props.title.toLowerCase()}`}
     >
       <div className="header-textbox">
@@ -24,37 +21,26 @@ const Header = props => {
   const handleToggle = () => setShow(!show);
 
   return (
-    <Flex
-      className="header"
-      padding="1.5rem"
-      bg={{ sm: show ? "#33AAFF" : "white" }}
-      {...props}
-    >
-      <Box
-        display={{ sm: "block", md: "none" }}
-        marginLeft="auto"
-        onClick={handleToggle}
+    <nav class="navbar navbar-expand-lg navbar-light my-3">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-        <svg
-          width="12px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </Box>
-      <Box
-        className="header-list"
-        display={{ sm: show ? "flex" : "none", md: "flex" }}
-        width={{ sm: "full", md: "32%" }}
-        margin="auto"
-      >
-        {props.headerItems.map(title => {
-          return <HeaderItem key={title} title={title} />;
-        })}
-      </Box>
-    </Flex>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          {props.headerItems.map(title => {
+            return <HeaderItem key={title} title={title} />;
+          })}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

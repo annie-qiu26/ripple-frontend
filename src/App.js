@@ -8,6 +8,7 @@ import RippleLink from "./screens/RippleLink";
 import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./App.css";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
@@ -23,6 +24,12 @@ const newTheme = {
     body: "Open Sans, sans-serif",
     heading: "Open Sans, serif",
     mono: "Open Sans, monospace"
+  },
+  colors: {
+    ...theme.colors,
+    yellow: "#FFF7A7",
+    green: "3BB273",
+    blue: "#33AAFF"
   }
 };
 
