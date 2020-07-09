@@ -115,7 +115,7 @@ function RippleLink(props) {
             </Flex>
             <Flex marginTop="12px">
               <ButtonR
-                background="#F3F3F3"
+                // background="#F3F3F3"
                 borderRadius="32px"
                 padding="8px 16px 8px 16px"
                 onClick={() => copyLink()}
@@ -123,11 +123,11 @@ function RippleLink(props) {
             </Flex>
           </Flex>
         </Box>
-        <Box>
+        <Box width={{ md: "30%" }}>
           <Card
             background="#FFF7A7"
-            height="200px"
-            width="400px"
+            height="auto"
+            width="100%"
             textAlign="center"
             padding="12px"
             margin="24px"

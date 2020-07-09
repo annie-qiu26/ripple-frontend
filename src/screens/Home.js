@@ -53,26 +53,27 @@ function Home() {
               Start a rippl.it
             </ButtonR>
           </Link>
-          <Flex>
-            <Input
-              background="#F3F3F3"
-              placeholder="Your rippl.it token"
-              borderRadius="32px"
-              width="88%"
-              marginRight="12px"
-              id="token"
-            />
+          <form className="form" onSubmit={handleSearch}>
+            <Flex>
+              <Input
+                background="#F3F3F3"
+                placeholder="Your rippl.it token"
+                borderRadius="32px"
+                width="88%"
+                marginRight="12px"
+                id="token"
+              />
 
-            <IconButton
-              icon="search"
-              width="auto"
-              borderRadius="32px"
-              boxShadow="4px 4px 8px rgba(0, 0, 0, 0.1)"
-              isLoading={false}
-              type="submit"
-              onClick={handleSearch}
-            />
-          </Flex>
+              <IconButton
+                icon="search"
+                width="auto"
+                borderRadius="32px"
+                boxShadow="4px 4px 8px rgba(0, 0, 0, 0.1)"
+                isLoading={false}
+                type="submit"
+              />
+            </Flex>
+          </form>
         </Flex>
         {searchError && (
           <Text margin="12px 4px 12px 4px" color="tomato">

@@ -18,9 +18,10 @@ function OrganizationCard(props) {
     <Card
       background="#FFFFFF"
       width="100%"
-      margin="24px 0px 24px 0px"
-      padding="24px"
+      margin="12px 0px 12px 0px"
+      padding="12px"
       textAlign="center"
+      overflowWrap="break-word"
     >
       <Text fontWeight="bold">{organization.name}</Text>
       <Text>
