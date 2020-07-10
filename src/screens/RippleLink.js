@@ -19,7 +19,6 @@ function RippleLink(props) {
   const [loading, setLoading] = useState(true);
   const [link, setLink] = useState(undefined);
   const [ripple, setRipple] = useState(undefined);
-  const [viewNo, setViewNo] = useState(undefined);
 
   const copyLink = () => {
     const el = document.createElement("textarea");
@@ -39,7 +38,6 @@ function RippleLink(props) {
         } else {
           setLink(res.link);
           setRipple(res.ripple);
-          setViewNo(res.view_no);
           setLoading(false);
         }
       })
@@ -74,13 +72,13 @@ function RippleLink(props) {
                 marginLeft="8px"
                 marginBottom="24px"
               >
-                Welcome, welcome! Thanks for being visitor #{viewNo}!
+                Welcome, welcome! Thanks for being visitor #{link.child_index}!
               </Heading>
             </Flex>
             <Flex justifyContent="space-around" flexWrap="wrap">
               <RippleStatCard
-                stat={link.total_unique_visitors}
-                field="visitors"
+                stat={link.total_depth}
+                field="depth"
               />
               <RippleStatCard stat={link.total_views} field="views" />
               <RippleStatCard stat={`$${link.total_raised}`} field="raised" />
