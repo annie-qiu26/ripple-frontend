@@ -7,6 +7,7 @@ export async function createRipple(title, orgIds, userId, locationOn) {
   }
   return await apiJSON(`${process.env.REACT_APP_HOSTNAME}/api/ripple`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },

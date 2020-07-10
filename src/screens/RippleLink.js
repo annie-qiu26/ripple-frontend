@@ -8,7 +8,7 @@ import WrappedMessage from "../components/WrappedMessage";
 import RippleStatCard from "../components/RippleStatCard";
 import OrganizationCard from "../components/OrganizationCard";
 
-import { generateLink, getLink } from "../api/link";
+import { getLink } from "../api/link";
 import { getOrganization } from "../api/organization";
 import "./RippleLink.css";
 
@@ -19,7 +19,6 @@ function RippleLink(props) {
   const [loading, setLoading] = useState(true);
   const [link, setLink] = useState(undefined);
   const [ripple, setRipple] = useState(undefined);
-  const [viewNo, setViewNo] = useState(undefined);
 
   const copyLink = () => {
     const el = document.createElement("textarea");
@@ -34,10 +33,13 @@ function RippleLink(props) {
   useEffect(() => {
     getLink(linkID)
       .then(res => {
-        setLink(res.link);
-        setRipple(res.ripple);
-        setViewNo(res.view_no);
-        setLoading(false);
+        if (res.link._id !== linkID) {
+          history.push(`/ripplits/${res.link._id}`);
+        } else {
+          setLink(res.link);
+          setRipple(res.ripple);
+          setLoading(false);
+        }
       })
       .catch(res => {
         history.push("/404");
@@ -70,13 +72,13 @@ function RippleLink(props) {
                 marginLeft="8px"
                 marginBottom="24px"
               >
-                Welcome, welcome! Thanks for being visitor #{viewNo}!
+                Welcome, welcome! Thanks for being visitor #{link.child_index}!
               </Heading>
             </Flex>
             <Flex justifyContent="space-around" flexWrap="wrap">
               <RippleStatCard
-                stat={link.total_unique_visitors}
-                field="visitors"
+                stat={link.total_depth}
+                field="depth"
               />
               <RippleStatCard stat={link.total_views} field="views" />
               <RippleStatCard stat={`$${link.total_raised}`} field="raised" />
@@ -89,23 +91,6 @@ function RippleLink(props) {
                 field="rippls from this page"
               />
               <RippleStatCard stat={link.total_miles} field="miles" />
-            </Flex>
-            <Flex marginLeft="8px" marginTop="24px">
-              <Text>
-                Create your own Rippl to pass along!{" "}
-                <ButtonR
-                  marginLeft="8px"
-                  height="24px"
-                  padding="4px 12px 4px 0px"
-                  onClick={() =>
-                    generateLink(link?._id).then(res =>
-                      history.push(`/ripplits/${res.link_id}`)
-                    )
-                  }
-                  rightIcon="arrow-forward"
-                />
-              </Text>
-              <Flex></Flex>
             </Flex>
             <Flex marginTop="12px" marginLeft="8px">
               <Text>
