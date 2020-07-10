@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text } from "@chakra-ui/core";
+import { Text } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -17,9 +17,6 @@ const HeaderItem = props => {
 };
 
 const Header = props => {
-  const [show, setShow] = React.useState(false);
-  const handleToggle = () => setShow(!show);
-
   return (
     <nav class="navbar navbar-expand-lg navbar-light my-3">
       <button
