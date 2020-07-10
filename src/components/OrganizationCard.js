@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Heading, Text } from "@chakra-ui/core";
+import { Text } from "@chakra-ui/core";
 import Card from "./Card";
 import "./OrganizationCard.css";
 

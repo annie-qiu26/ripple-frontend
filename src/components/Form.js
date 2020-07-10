@@ -11,28 +11,15 @@ import {
   Tooltip,
   Icon
 } from "@chakra-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
 import OrganizationsField from "./OrganizationsField";
 import ButtonR from "./Button";
+import CssTextField from "./CssTextField";
 import "./Form.css";
 
 import { createRipple } from "../api/ripple";
 
 const LOCATION_TOOLTIP =
   "Why share your location? We just wanna show some cool statistics, like how far your ripple traveled.";
-
-const CssTextField = withStyles({
-  root: {
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "32px",
-      boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-      "&.Mui-focused fieldset": {
-        borderColor: "#33AAFF"
-      }
-    }
-  }
-})(TextField);
 
 function Form() {
   const history = useHistory();
@@ -98,7 +85,7 @@ function Form() {
     return (
       <div className="form-items">
         {/* TODO: Explain why location is needed*/}
-        <Checkbox defaultIsChecked size="md">
+        <Checkbox className="form-checkbox" defaultIsChecked size="md">
           <Flex className="form-checkbox-inner">
             <Text fontSize="md" marginRight="4px">
               Share your location

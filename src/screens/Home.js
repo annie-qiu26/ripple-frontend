@@ -20,7 +20,7 @@ function Home() {
   }
 
   return (
-    <Flex className="home" width={{ sm: "stretch", xl: "36%" }}>
+    <Flex className="home" width={{ sm: "stretch", xl: "40%" }}>
       <Flex flexDirection="column">
         <div className="home-text">
           <Heading size="lg" color="#33AAFF">
@@ -40,44 +40,35 @@ function Home() {
             </Link>
           </Text>
         </div>
-        <Flex
-          flexDirection="column"
-          width={{ sm: "stretch", md: "64%", xl: "32%" }}
-        >
-          <Link to={`/create`} width="100%">
-            <ButtonR
-              margin="24px 0px 24px 0px"
-              justifyContent="left"
-              padding="16px"
-            >
+        <Flex flexDirection="column" width={{ md: "stretch", lg: "50%" }}>
+          <Link to={`/create`}>
+            <ButtonR className="home-start-button" justifyContent="left">
               Start a rippl.it
             </ButtonR>
           </Link>
           <form className="form" onSubmit={handleSearch}>
-            <Flex>
+            <div class="d-flex flex-row justify-content-between">
               <Input
                 background="#F3F3F3"
                 placeholder="Your rippl.it token"
                 borderRadius="32px"
-                width="88%"
                 marginRight="12px"
                 id="token"
               />
 
               <IconButton
+                className="home-search-button"
                 icon="search"
-                width="auto"
                 borderRadius="32px"
-                boxShadow="4px 4px 8px rgba(0, 0, 0, 0.1)"
                 isLoading={false}
                 type="submit"
               />
-            </Flex>
+            </div>
           </form>
         </Flex>
         {searchError && (
           <Text margin="12px 4px 12px 4px" color="tomato">
-            Your token is empty? 
+            Your token is empty?
           </Text>
         )}
       </Flex>

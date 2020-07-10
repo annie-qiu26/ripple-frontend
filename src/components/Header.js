@@ -18,7 +18,7 @@ const HeaderItem = props => {
 
 const Header = props => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light my-3">
+    <nav class="navbar navbar-expand-lg navbar-light pt-4">
       <button
         class="navbar-toggler"
         type="button"

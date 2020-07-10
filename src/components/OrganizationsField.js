@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from "react";
-import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { withStyles } from "@material-ui/core/styles";
 import { Controller } from "react-hook-form";
+import CssTextField from "./CssTextField";
+import "./OrganizationsField.css"
 
 import { listOrganizations } from "../api/organization";
-
-const CssTextField = withStyles({
-  root: {
-    "& .MuiOutlinedInput-root": {
-      borderRadius: "32px",
-      boxShadow: "4px 4px 8px rgba(0, 0, 0, 0.1)",
-      "&.Mui-focused fieldset": {
-        borderColor: "#33AAFF"
-      }
-    }
-  }
-})(TextField);
 
 function OrganizationsField({ onChange, control }) {
    const [organizations, setOrganizations] = useState([]);

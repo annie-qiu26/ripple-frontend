@@ -1,15 +1,3 @@
-.header {
-  margin: auto;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.header-list {
-  justify-content: space-between;
-}
-
 .header-item:hover {
   display: inline-block;
   text-decoration: none;

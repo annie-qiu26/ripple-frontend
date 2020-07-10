@@ -10,6 +10,10 @@
   border-radius: 48px;
 }
 
+.form-checkbox svg {
+  color: black;
+}
+
 .form-checkbox-inner {
   flex-direction: row;
 }

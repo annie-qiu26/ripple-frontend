@@ -1,14 +1,33 @@
 .home {
-  align-items: center;
-  min-height: 80%; /* TODO: Figure out how to fill height to remaining space */
-  flex-direction: row;
-  margin-left: 12%;
-  margin-right: 12%;
+  height: 96%; /* Don't want it completely aligned in the center? */
   text-align: left;
+  align-items: center;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-.home * {
-  width: 100%
+.home-start-button {
+  text-align: left;
+  padding: 16px;
+  width: 100%;
+  margin: 24px 0px 24px 0px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.home-start-button:focus {
+  outline: none;
+}
+
+.home-search-button {
+  text-align: left;
+  width: fit-content;
+  padding: 16px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-search-button:focus {
+  outline: none;
 }
 
 .home-text * {

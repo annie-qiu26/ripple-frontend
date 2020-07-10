@@ -36,7 +36,7 @@ const newTheme = {
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div class="App d-flex flex-column mx-3">
         <ThemeProvider theme={newTheme}>
           <CSSReset />
           <Header headerItems={["Home", "Explore", "About"]} />
@@ -47,6 +47,7 @@ function App() {
           you have multiple routes, but you want only one
           of them to render at a time
         */}
+        <div class="flex-grow-1">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -76,6 +77,7 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
+          </div>
         </ThemeProvider>
       </div>
     </Router>
