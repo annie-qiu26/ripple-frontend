@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import ButtonR from "../components/Button";
 import { Input, Heading, Flex, Text, IconButton } from "@chakra-ui/core";
 import { Link, useHistory } from "react-router-dom";
+
+import ButtonR from "../components/Button";
+import RippleEffect from "../components/RippleEffect";
+
 import "./Home.css";
 
 function Home() {
@@ -21,6 +24,7 @@ function Home() {
 
   return (
     <Flex className="home" width={{ sm: "stretch", xl: "40%" }}>
+      <RippleEffect/>
       <Flex flexDirection="column">
         <div className="home-text">
           <Heading size="lg" color="#33AAFF">
