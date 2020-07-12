@@ -1,3 +1,37 @@
-.ripple-link-inner {
-  width: 48%;
+.stats-container {
+  max-width: 1000px;
+}
+
+.orgs-container {
+  max-width: 500px;
+}
+
+.orgs-card {
+  background: rgba(255, 247, 167, 0.8);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 8px;
+  align-items: center;
+}
+
+.ripplit-button {
+  text-align: left;
+  padding: 16px;
+  border-radius: 32px;
+  width: auto;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.ripplit-button:focus {
+  outline: none;
+}
+
+.welcome-text-title {
+  color: #33aaff;
 }

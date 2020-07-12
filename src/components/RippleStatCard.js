@@ -1,18 +1,20 @@
 import React from "react";
-import { Box, Heading, Text } from "@chakra-ui/core";
+import { Heading, Text } from "@chakra-ui/core";
 import Card from "./Card";
 import "./RippleStatCard.css";
 
 function RippleStatCard(props) {
   return (
     <Card
-      background="#F6F5FD"
+      background="rgba(237, 242, 247, 0.85)"
+      boxShadow="4px 4px 12px rgba(0, 0, 0, 0.1)"
       width="100%"
-      margin="24px 0px 24px 0px"
-      padding="24px"
-      maxWidth="250px"
+      display="flex"
+      justifyContent="center"
+      maxWidth={{ sm: "stretch", md: "280px", lg: "240px" }}
       minHeight="120px"
       textAlign="center"
+      margin="12px 0px"
     >
       <Heading>{props.stat}</Heading>
       <Text>{props.field}</Text>

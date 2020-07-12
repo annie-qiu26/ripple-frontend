@@ -17,9 +17,9 @@ function OrganizationCard(props) {
   return (
     <Card
       background="#FFFFFF"
-      width="100%"
-      margin="12px 0px 12px 0px"
-      padding="12px"
+      width="stretch"
+      margin="6px 16px"
+      padding="16px"
       textAlign="center"
       overflowWrap="break-word"
     >

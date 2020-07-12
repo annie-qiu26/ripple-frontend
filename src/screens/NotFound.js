@@ -15,7 +15,7 @@ export default function NotFound(props) {
       </Heading>
       <Text fontSize="xl">
         Exploring is fun, but beware of dangerous waters. Ask your friend again
-        for the correct rippl link, so you can safely swim to the correct page.
+        for the correct rippl.it link, so you can safely swim to the correct page.
       </Text>
       <Link to={`/home`}>
         <ButtonR className="home-start-button" justifyContent="left">Navigate to home</ButtonR>

@@ -18,9 +18,9 @@ const HeaderItem = props => {
 
 const Header = props => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light pt-4">
+    <nav className="navbar navbar-expand-lg navbar-light pt-4">
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
@@ -28,10 +28,13 @@ const Header = props => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        <ul class="navbar-nav">
+      <div
+        className="collapse navbar-collapse justify-content-center"
+        id="navbarSupportedContent"
+      >
+        <ul className="navbar-nav">
           {props.headerItems.map(title => {
             return <HeaderItem key={title} title={title} />;
           })}
