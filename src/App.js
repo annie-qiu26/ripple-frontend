@@ -7,7 +7,7 @@ import Explore from "./screens/Explore";
 import RippleLink from "./screens/RippleLink";
 import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 
@@ -70,6 +70,7 @@ function App() {
             <Route exact path="/404">
               <NotFound />
             </Route>
+            <Redirect from='*' to='/404' />
           </Switch>
           </div>
         </ThemeProvider>
