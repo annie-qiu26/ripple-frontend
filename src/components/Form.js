@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {
@@ -23,7 +23,16 @@ const LOCATION_TOOLTIP =
 
 function Form() {
   const history = useHistory();
-  const { handleSubmit, errors, register, formState, control } = useForm();
+  const {
+    handleSubmit,
+    errors,
+    register,
+    formState,
+    control,
+    setError
+  } = useForm();
+  const [formSuccessState, setFormSuccessState] = useState(null);
+  const [formLoadingState, setFormLoadingState] = useState(null);
 
   function Title() {
     return (
@@ -103,7 +112,39 @@ function Form() {
 
   function onSubmit(values, e) {
     const { title, organizations, email } = values;
-    createRipple(title, organizations.map(org => org._id)).then(res => history.push(`/ripplits/${res.link_id}`));
+    if (!organizations || organizations.length === 0) {
+      setFormSuccessState(false);
+      setError(
+        "organizations",
+        "nullOrganizations",
+        "Please select at least one organization."
+      );
+      return;
+    }
+
+    setFormLoadingState(true);
+    createRipple(title, organizations.map(org => org._id)).then(res =>
+      history.push(`/ripplits/${res.link_id}`)
+    );
+  }
+
+  function renderFormMessage() {
+    if (formSuccessState === true) {
+      return (
+        <span className="formSuccessMessage">
+          <Icon name="check-circle" className="checkIcon" />
+          <p>Email subscribed sucessfully</p>
+        </span>
+      );
+    } else if (formSuccessState === false) {
+      return (
+        <span className="form-warning-message">
+          <Icon name="warning" className="warning-icon" />
+          {errors.email && errors.email.message}
+          {errors.organizations && errors.organizations.message}
+        </span>
+      );
+    }
   }
 
   return (
@@ -113,13 +154,11 @@ function Form() {
         {Organizations(control)}
         {Email()}
         {Location()}
-        <FormErrorMessage>
-          {errors.email && errors.email.message}
-        </FormErrorMessage>
+        {renderFormMessage()}
       </FormControl>
       <ButtonR
         margin="12px 0px"
-        isLoading={formState.isSubmitting}
+        isLoading={formLoadingState}
         type="submit"
       >
         Submit

@@ -46,7 +46,6 @@ function RippleLink(props) {
   }, [linkID, history]);
 
   const WelcomeMessage = () => {
-    console.log(ripple);
     return (
       <div class="row">
         <Heading className="welcome-text mb-4 mt-3" fontWeight="bold" size="lg">
@@ -59,7 +58,6 @@ function RippleLink(props) {
   };
 
   const StatCards = () => {
-    console.log(link);
     return (
       <div class="row justify-content-around">
         <RippleStatCard
