@@ -25,12 +25,6 @@ const newTheme = {
     heading: "Open Sans, serif",
     mono: "Open Sans, monospace"
   },
-  colors: {
-    ...theme.colors,
-    yellow: "#FFF7A7",
-    green: "3BB273",
-    blue: "#33AAFF"
-  }
 };
 
 function App() {
