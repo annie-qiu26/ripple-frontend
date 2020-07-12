@@ -103,14 +103,16 @@ function RippleLink(props) {
 
   const Organizations = () => {
     return (
-      <Card className="orgs-card" maxHeight={{ sm: "440px", md: "740px", lg: "500px", xl: "440px" }}>
-        <Text className="my-3" fontWeight="bold">
-          Let's learn more about these organizations!
-        </Text>
-        {ripple?.organizations?.map(orgID => (
-          <OrganizationCard key={orgID} id={orgID} />
-        ))}
-      </Card>
+      <div className="row">
+        <Card className="orgs-card" maxHeight={{ sm: "440px", md: "740px", lg: "500px", xl: "440px" }}>
+          <Text className="my-3" fontWeight="bold">
+            Let's learn more about these organizations!
+          </Text>
+          {ripple?.organizations?.map(orgID => (
+            <OrganizationCard key={orgID} id={orgID} />
+          ))}
+        </Card>
+      </div>
     );
   };
 
@@ -123,16 +125,16 @@ function RippleLink(props) {
         height={{ md: "auto", lg: "92%" }}
       >
         <div class="container">
+          {WelcomeMessage()}
           <div class="row">
             <div class="stats-container col text-left">
-              {WelcomeMessage()}
               {StatCards()}
-              {ShareRipplit()}
             </div>
             <div class="orgs-container col ml-lg-5 my-3 d-flex">
               {Organizations()}
             </div>
           </div>
+          {ShareRipplit()}
         </div>
       </Flex>
     );
