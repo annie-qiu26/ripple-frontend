@@ -48,7 +48,7 @@ function RippleLink(props) {
   const WelcomeMessage = () => {
     return (
       <div class="row">
-        <Heading className="welcome-text mb-4 mt-3" fontWeight="bold" size="lg" marginLeft={{sm: "0px", md: "8px"}}>
+        <Heading className="welcome-text mb-3 mt-3" fontWeight="bold" size="lg" marginLeft={{sm: "0px", md: "8px"}}>
           Welcome, welcome! Thanks for being visitor #{link.child_index}! Check
           out these stats for rippl.it:{" "}
           <span class="welcome-text-title"> {ripple.title || "Untitled"} </span>
@@ -123,7 +123,7 @@ function RippleLink(props) {
     return (
       <Flex
         className="ripple-link justify-content-center align-items-center text-left"
-        height={{ md: "auto", lg: "92%" }}
+        height={{ md: "auto", lg: "96%" }}
         margin={{ sm: "auto", lg: "0% 4%", xl: "0% 8%" }}
       >
         <div class="container">
