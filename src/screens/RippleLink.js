@@ -48,7 +48,7 @@ function RippleLink(props) {
   const WelcomeMessage = () => {
     return (
       <div class="row">
-        <Heading className="welcome-text mb-4 mt-3" fontWeight="bold" size="lg">
+        <Heading className="welcome-text mb-4 mt-3" fontWeight="bold" size="lg" marginLeft={{sm: "0px", md: "8px"}}>
           Welcome, welcome! Thanks for being visitor #{link.child_index}! Check
           out these stats for rippl.it:{" "}
           <span class="welcome-text-title"> {ripple.title || "Untitled"} </span>
@@ -59,7 +59,7 @@ function RippleLink(props) {
 
   const StatCards = () => {
     return (
-      <div class="row justify-content-around">
+      <div class="row justify-content-around align-content-stretch h-100">
         <RippleStatCard
           className="col"
           stat={`$${link.total_raised}`}
@@ -88,12 +88,13 @@ function RippleLink(props) {
 
   const ShareRipplit = () => {
     return (
-      <div class="row mt-3">
-        <Text>
+      <div class="row mt-3" >
+        <Text marginLeft={{sm: "0px", md: "8px"}} >
           Let's continue this chain and share this rippl.it with more friends!
         </Text>
         <ButtonR
-          className="ripplit-button m-2"
+          marginLeft={{ sm: "12px", md: "16px" }}
+          className="ripplit-button mt-2 mb-3"
           fontSize={{ sm: "12px", md: "16px" }}
           onClick={() => copyLink()}
         >{`rippl.its/ripplits/${link?._id}`}</ButtonR>
@@ -104,7 +105,7 @@ function RippleLink(props) {
   const Organizations = () => {
     return (
       <div className="row">
-        <Card className="orgs-card" maxHeight={{ sm: "440px", md: "740px", lg: "500px", xl: "440px" }}>
+        <Card className="orgs-card ml-sm-3" margin="12px 0px" maxHeight={{md: "500px", lg: "330px"}}>
           <Text className="my-3" fontWeight="bold">
             Let's learn more about these organizations!
           </Text>
@@ -121,16 +122,17 @@ function RippleLink(props) {
   } else {
     return (
       <Flex
-        className="ripple-link justify-content-center align-items-center"
+        className="ripple-link justify-content-center align-items-center text-left"
         height={{ md: "auto", lg: "92%" }}
+        margin={{ sm: "auto", lg: "0% 4%", xl: "0% 8%" }}
       >
         <div class="container">
           {WelcomeMessage()}
           <div class="row">
-            <div class="stats-container col text-left">
+            <div class="stats-container col text-md-left">
               {StatCards()}
             </div>
-            <div class="orgs-container col ml-lg-5 my-3 d-flex">
+            <div class="orgs-container col ml-md-5 d-flex h-50">
               {Organizations()}
             </div>
           </div>

@@ -13,7 +13,6 @@ span.ripple {
   animation: ripple 1s ease-in;
   opacity: 0;
   pointer-events: none;
-
 }
 
 @keyframes ripple {

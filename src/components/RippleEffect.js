@@ -5,7 +5,7 @@ import "./RippleEffect.css";
 
 export default function RippleEffect(props) {
   const [ripples, setRipples] = useState([]);
-  const clearRipples = useCallback(debounce( () => setRipples([]), 1000), []);
+  const clearRipples = useCallback(debounce( () => setRipples([]), 5000), []);
 
   const click = useCallback(e => {
     const x = e.clientX;
@@ -23,7 +23,7 @@ export default function RippleEffect(props) {
   }, [click]);
 
   return (
-    <div>
+    <div className="ripple-effect">
       {ripples.map(r => (
         <span key={`${r.left}-${r.top}`} className="ripple" style={r}/>
       ))}

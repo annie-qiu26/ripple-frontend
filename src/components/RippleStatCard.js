@@ -11,8 +11,8 @@ function RippleStatCard(props) {
       width="100%"
       display="flex"
       justifyContent="center"
-      maxWidth={{ sm: "stretch", md: "280px", lg: "240px" }}
-      minHeight="120px"
+      padding="12px"
+      maxWidth={{ sm: "stretch", md: "240px", lg: "196px" }}
       textAlign="center"
       margin="12px 0px"
     >

@@ -18,13 +18,13 @@ function OrganizationCard(props) {
     <Card
       background="#FFFFFF"
       width="stretch"
-      margin="6px 16px"
       padding="16px"
       textAlign="center"
       overflowWrap="break-word"
+      className="orgs-individual-card mx-2 mb-2"
     >
-      <Text fontWeight="bold">{organization.name}</Text>
-      <Text>
+      <Text fontWeight="bold" fontSize="0.75rem">{organization.name}</Text>
+      <Text fontSize="0.75rem">
         <a target="_blank" rel="noopener noreferrer" href={organization.url}>
           {organization.url}
         </a>

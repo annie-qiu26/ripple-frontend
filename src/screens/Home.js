@@ -27,14 +27,14 @@ function Home() {
       <RippleEffect/>
       <Flex flexDirection="column">
         <div className="home-text">
-          <Heading size="lg" color="#33AAFF">
+          <Heading size="sm" color="#33AAFF">
             rippl.it
           </Heading>
-          <Heading size="2xl">Share Your Cause.</Heading>
-          <Heading size="2xl" fontWeight="normal">
+          <Heading size="xl">Share Your Cause.</Heading>
+          <Heading size="xl" fontWeight="normal">
             See Your Ripple.
           </Heading>
-          <Text fontSize="lg">
+          <Text fontSize="md">
             Your action of sharing a link to a cause in need makes an impact.
             With rippl.it, you can now track the generations of support you have
             helped raise. Watch your ripple grow one share at a time.
@@ -56,7 +56,7 @@ function Home() {
                 background="#F3F3F3"
                 placeholder="Your rippl.it token"
                 borderRadius="32px"
-                marginRight="12px"
+                marginRight="8px"
                 id="token"
               />
 
