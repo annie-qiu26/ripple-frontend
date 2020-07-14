@@ -9,6 +9,7 @@ import RippleStatCard from "../components/RippleStatCard";
 import OrganizationCard from "../components/OrganizationCard";
 
 import { getLink } from "../api/link";
+import { fetchGeolocation } from "../api/ipdata";
 import "./RippleLink.css";
 
 function RippleLink(props) {
@@ -18,6 +19,7 @@ function RippleLink(props) {
   const [loading, setLoading] = useState(true);
   const [link, setLink] = useState(undefined);
   const [ripple, setRipple] = useState(undefined);
+  const [location, setLocation] = useState(undefined);
 
   const copyLink = () => {
     const el = document.createElement("textarea");
@@ -43,12 +45,23 @@ function RippleLink(props) {
       .catch(res => {
         history.push("/404");
       });
+
+    if (process.env.PRODUCTION) {
+      fetchGeolocation()
+        .then(res => setLocation([res.latitude, res.longitude]))
+        .catch();
+    }
   }, [linkID, history]);
 
   const WelcomeMessage = () => {
     return (
       <div class="row">
-        <Heading className="welcome-text mb-3 mt-3" fontWeight="bold" size="lg" marginLeft={{sm: "0px", md: "8px"}}>
+        <Heading
+          className="welcome-text mb-3 mt-3"
+          fontWeight="bold"
+          size="lg"
+          marginLeft={{ sm: "0px", md: "8px" }}
+        >
           Welcome, welcome! Thanks for being visitor #{link.child_index}! Check
           out these stats for rippl.it:{" "}
           <span class="welcome-text-title"> {ripple.title || "Untitled"} </span>
@@ -88,8 +101,8 @@ function RippleLink(props) {
 
   const ShareRipplit = () => {
     return (
-      <div class="row mt-3" >
-        <Text marginLeft={{sm: "0px", md: "8px"}} >
+      <div class="row mt-3">
+        <Text marginLeft={{ sm: "0px", md: "8px" }}>
           Let's continue this chain and share this rippl.it with more friends!
         </Text>
         <ButtonR
@@ -105,7 +118,11 @@ function RippleLink(props) {
   const Organizations = () => {
     return (
       <div className="row">
-        <Card className="orgs-card ml-sm-3" margin="12px 0px" maxHeight={{md: "500px", lg: "330px"}}>
+        <Card
+          className="orgs-card ml-sm-3"
+          margin="12px 0px"
+          maxHeight={{ md: "500px", lg: "330px" }}
+        >
           <Text className="my-3" fontWeight="bold">
             Let's learn more about these organizations!
           </Text>
@@ -129,9 +146,7 @@ function RippleLink(props) {
         <div class="container">
           {WelcomeMessage()}
           <div class="row">
-            <div class="stats-container col text-md-left">
-              {StatCards()}
-            </div>
+            <div class="stats-container col text-md-left">{StatCards()}</div>
             <div class="orgs-container col ml-md-5 d-flex h-50">
               {Organizations()}
             </div>
