@@ -49,7 +49,7 @@ function RippleLink(props) {
     if (process.env.REACT_APP_PRODUCTION) {
       fetchGeolocation()
         .then(res => setLocation([res.latitude, res.longitude]))
-        .catch();
+        .catch(err => {});
     }
   }, [linkID, history]);
 
