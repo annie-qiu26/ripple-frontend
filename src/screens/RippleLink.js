@@ -46,7 +46,7 @@ function RippleLink(props) {
         history.push("/404");
       });
 
-    if (process.env.REACT_APP_PRODUCTION) {
+    if (process.env.REACT_APP_PRODUCTION === 'true') {
       fetchGeolocation()
         .then(res => setLocation([res.latitude, res.longitude]))
         .catch(err => {});
