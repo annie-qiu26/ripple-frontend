@@ -33,10 +33,10 @@ function Explore(props) {
         margin={{ sm: "auto", lg: "0% 8%", xl: "0% 12%" }}
       >
         <div class="container justify-content-around">
-          <Heading className="my-2 ml-2" size="md" color="#33AAFF">
+          <Heading className="my-4 mb-2 ml-2" size="sm" color="#33AAFF">
             Trending
           </Heading>
-          <Heading className="mb-4 ml-2" size="xl">
+          <Heading className="mb-4 ml-2" size="lg">
             Check out today's most popular ripples!
           </Heading>
           <Box className="row justify-content-around">
