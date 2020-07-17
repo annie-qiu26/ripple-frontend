@@ -49,9 +49,7 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-            <Route path="/explore">
-              <Explore />
-            </Route>
+            <Route path="/explore" component={Explore}/>
             <Route path="/about">
               <div>
                 <Card background="#efefef" width="300px" height="300px">

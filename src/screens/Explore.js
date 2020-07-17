@@ -3,7 +3,7 @@ import { Flex, Heading, Box } from "@chakra-ui/core";
 import { useHistory } from "react-router-dom";
 import RippleCard from "../components/RippleCard";
 
-import { listRipples } from "../api/ripple";
+import { listRipples, searchRipples } from "../api/ripple";
 
 import "./Explore.css";
 
@@ -13,7 +13,10 @@ function Explore(props) {
   const history = useHistory();
 
   useEffect(() => {
-    listRipples()
+     const search = new URLSearchParams(props.location.search);
+     const query = search.get('q');
+
+    searchRipples(query || '')
       .then(res => {
         setLoading(false);
         setRipples(res.ripples);
@@ -21,7 +24,7 @@ function Explore(props) {
       .catch(err => {
         history.push("/404");
       });
-  });
+  }, []);
 
   if (loading) {
     return <div />;

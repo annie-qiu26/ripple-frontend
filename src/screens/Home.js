@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Input, Heading, Flex, Text, IconButton } from "@chakra-ui/core";
 import { Link, useHistory } from "react-router-dom";
 
@@ -11,15 +11,17 @@ function Home() {
   const [searchError, setSearchError] = useState(false);
 
   const history = useHistory();
+  const searchRef = useRef();
 
-  function handleSearch() {
-    let token = document.getElementById("token").value;
-    if (!token) {
-      setSearchError("Your token is empty?");
-      return;
+  function handleSearch(e) {
+    e.preventDefault();
+    const query = searchRef.current.value;
+
+    if (!query) {
+      setSearchError("Your query is empty?");
+    } else {
+      history.push(`explore/?q=${query}`);
     }
-
-    history.push(`ripplits/${token}`);
   }
 
   return (
@@ -54,10 +56,11 @@ function Home() {
             <div class="d-flex flex-row justify-content-between">
               <Input
                 background="#F3F3F3"
-                placeholder="Your rippl.it token"
+                placeholder="Search for ripples"
                 borderRadius="32px"
                 marginRight="8px"
                 id="token"
+                ref={searchRef}
               />
 
               <IconButton

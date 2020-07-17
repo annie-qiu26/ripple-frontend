@@ -22,3 +22,13 @@ export async function getRipple(id) {
 export async function listRipples() {
   return await apiJSON(`${process.env.REACT_APP_HOSTNAME}/api/ripple/list`);
 }
+
+export async function searchRipples(query) {
+  return await apiJSON(`${process.env.REACT_APP_HOSTNAME}/api/ripple/search`, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  });
+}
