@@ -4,6 +4,7 @@ import Card from "./components/Card";
 import Home from "./screens/Home";
 import Create from "./screens/Create";
 import Explore from "./screens/Explore";
+import About from "./screens/About";
 import RippleLink from "./screens/RippleLink";
 import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
@@ -51,12 +52,7 @@ function App() {
             </Route>
             <Route path="/explore" component={Explore}/>
             <Route path="/about">
-              <div>
-                <Card background="#efefef" width="300px" height="300px">
-                  <div>hi</div>
-                  <div>This is an example of what a card looks like</div>
-                </Card>
-              </div>
+              <About />
             </Route>
             <Route exact path="/create">
               <Create />

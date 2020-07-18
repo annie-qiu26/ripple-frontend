@@ -1,0 +1,30 @@
+.about {
+    height: 96%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header:before {
+    align-self: flex-end;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    border-top: 1px solid black;
+}
+
+.titlebox {
+    width: 100px;
+    align-items: center;
+}
+
+.description {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 15px
+}
