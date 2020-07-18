@@ -37,7 +37,7 @@ function Explore(props) {
       >
         <div class="container justify-content-around">
           <Heading className="my-4 mb-2 ml-2" size="sm" color="#33AAFF">
-            Trending
+            trending
           </Heading>
           <Heading className="mb-4 ml-2" size="lg">
             Check out today's most popular ripples!
