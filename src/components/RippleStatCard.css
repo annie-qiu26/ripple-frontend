@@ -1,0 +1,47 @@
+.scene {
+  height: 120px;
+  perspective: 600px;
+}
+
+.scene:focus {
+  outline: none;
+}
+
+.ripple-stat-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.ripple-stat-card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: rgba(237, 242, 247, 0.85);
+  border-radius: 16px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__face--back {
+  background: rgba(237, 242, 247, 0.85);
+  transform: rotateY(180deg);
+  border-radius: 16px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  flex-wrap: wrap;
+}

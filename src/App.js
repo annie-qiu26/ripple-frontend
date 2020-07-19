@@ -8,7 +8,12 @@ import About from "./screens/About";
 import RippleLink from "./screens/RippleLink";
 import NotFound from "./screens/NotFound";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 import "./App.css";
 
@@ -24,7 +29,7 @@ const newTheme = {
   fonts: {
     body: "Open Sans, sans-serif",
     heading: "Open Sans, serif",
-    mono: "Open Sans, monospace"
+    mono: "Open Sans, monospace",
   },
 };
 

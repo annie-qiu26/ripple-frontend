@@ -33,7 +33,7 @@ function RippleLink(props) {
 
   useEffect(() => {
     getLink(linkID)
-      .then(res => {
+      .then((res) => {
         if (res.link._id !== linkID) {
           history.push(`/ripplits/${res.link._id}`);
         } else {
@@ -42,14 +42,14 @@ function RippleLink(props) {
           setLoading(false);
         }
       })
-      .catch(res => {
+      .catch((res) => {
         history.push("/404");
       });
 
-    if (process.env.REACT_APP_PRODUCTION === 'true') {
+    if (process.env.REACT_APP_PRODUCTION === "true") {
       fetchGeolocation()
-        .then(res => setLocation([res.latitude, res.longitude]))
-        .catch(err => {});
+        .then((res) => setLocation([res.latitude, res.longitude]))
+        .catch((err) => {});
     }
   }, [linkID, history]);
 
@@ -70,32 +70,54 @@ function RippleLink(props) {
     );
   };
 
-  const StatCards = () => {
+  const ResponsiveStatsCards = () => {
     return (
-      <div class="row justify-content-around align-content-stretch h-100">
-        <RippleStatCard
-          className="col"
-          stat={`$${link.total_raised}`}
-          field="raised"
-        />
-        <RippleStatCard className="col" stat={link.total_views} field="views" />
-        <RippleStatCard
-          className="col"
-          stat={link.total_children}
-          field="unique visitors"
-        />
-        <RippleStatCard
-          className="col"
-          stat={link.total_descendants}
-          field="descendants"
-        />
-        <RippleStatCard className="col" stat={link.total_depth} field="depth" />
-        <RippleStatCard
-          className="col-sm"
-          stat={link.total_miles}
-          field="miles"
-        />
-      </div>
+      <section class="stats-cards" id="stats-cards">
+        <ul>
+          <li>
+            <RippleStatCard
+              className="col"
+              stat={`$${link.total_raised}`}
+              field="raised"
+            />
+          </li>
+          <li>
+            <RippleStatCard
+              className="col"
+              stat={link.total_views}
+              field="views"
+            />
+          </li>
+          <li>
+            <RippleStatCard
+              className="col"
+              stat={link.total_children}
+              field="unique visitors"
+            />
+          </li>
+          <li>
+            <RippleStatCard
+              className="col"
+              stat={link.total_descendants}
+              field="descendants"
+            />
+          </li>
+          <li>
+            <RippleStatCard
+              className="col"
+              stat={link.total_depth}
+              field="depth"
+            />
+          </li>
+          <li>
+            <RippleStatCard
+              className="col-sm"
+              stat={link.total_miles}
+              field="miles"
+            />
+          </li>
+        </ul>
+      </section>
     );
   };
 
@@ -119,14 +141,13 @@ function RippleLink(props) {
     return (
       <div className="row">
         <Card
-          className="orgs-card ml-sm-3"
-          margin="12px 0px"
-          maxHeight={{ md: "500px", lg: "330px" }}
+          className="orgs-card ml-sm-3 my-2"
+          maxHeight={{ md: "500px", lg: "270px" }}
         >
           <Text className="my-3" fontWeight="bold">
             Let's learn more about these organizations!
           </Text>
-          {ripple?.organizations?.map(orgID => (
+          {ripple?.organizations?.map((orgID) => (
             <OrganizationCard key={orgID} id={orgID} />
           ))}
         </Card>
@@ -146,8 +167,10 @@ function RippleLink(props) {
         <div class="container">
           {WelcomeMessage()}
           <div class="row">
-            <div class="stats-container col text-md-left">{StatCards()}</div>
-            <div class="orgs-container col ml-md-5 d-flex h-50">
+            <div class="stats-container col text-md-left">
+              {ResponsiveStatsCards()}
+            </div>
+            <div class="orgs-container col d-flex h-50">
               {Organizations()}
             </div>
           </div>

@@ -30,3 +30,15 @@
 .welcome-text-title {
   color: #33aaff;
 }
+
+.stats-cards > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.stats-cards > ul > li {
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+}

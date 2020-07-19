@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Heading, Text } from "@chakra-ui/core";
 import Card from "./Card";
 import "./RippleStatCard.css";
 
 function RippleStatCard(props) {
+  const [flipped, setFlipped] = useState(false);
+
+  const flipCard = () => {
+    setFlipped(!flipped);
+  };
+
   return (
     <Card
-      background="rgba(237, 242, 247, 0.85)"
-      boxShadow="4px 4px 12px rgba(0, 0, 0, 0.1)"
-      width="100%"
-      display="flex"
-      justifyContent="center"
-      padding="12px"
-      maxWidth={{ sm: "stretch", md: "240px", lg: "196px" }}
-      textAlign="center"
-      margin="12px 0px"
+      width="stretch"
+      as="button"
+      onClick={flipCard}
+      className="scene scene--ripple-stat-card m-2"
     >
-      <Heading>{props.stat}</Heading>
-      <Text>{props.field}</Text>
+      <div class={flipped ? "ripple-stat-card is-flipped" : "ripple-stat-card"}>
+        <div class="card__face card__face--front d-flex flex-column justify-content-center align-items-center">
+          <Heading>{props.stat}</Heading>
+          <Text>{props.field}</Text>
+        </div>
+        <div class="card__face card__face--back p-2 d-flex justify-content-center align-items-center">
+          <Text>Some cool text about ripplit</Text>
+        </div>
+      </div>
     </Card>
   );
 }
