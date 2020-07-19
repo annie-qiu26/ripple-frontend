@@ -142,7 +142,7 @@ function RippleLink(props) {
       <div className="row">
         <Card
           className="orgs-card ml-sm-3 my-2"
-          maxHeight={{ md: "500px", lg: "270px" }}
+          maxHeight={{ sm: "500px", md: "500px", lg: "270px" }}
         >
           <Text className="my-3" fontWeight="bold">
             Let's learn more about these organizations!
