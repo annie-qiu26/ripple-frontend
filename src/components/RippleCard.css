@@ -1,0 +1,9 @@
+.ripple-card {
+  border: 1.5px solid #33aaff;
+  border-radius: 16px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ripple-card:focus {
+  outline: none;
+}

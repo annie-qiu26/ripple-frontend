@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text } from "@chakra-ui/core";
+import { Text, Box } from "@chakra-ui/core";
 import Card from "./Card";
 import "./RippleCard.css";
 
@@ -12,13 +12,14 @@ function RippleCard(props) {
 
   return (
     <Card
-      className="scene scene--ripple-card m-2"
-      width={{ sm: "stretch", md: "200px" }}
+      className="ripple-card mt-2 p-2 justify-content-around"
       as="button"
+      display="flex"
+      alignItems="center"
       onClick={flipCard}
     >
-      <div class={flipped ? "ripple-card is-flipped" : "ripple-card"}>
-        <div class="card__face card__face--front d-flex justify-content-center align-items-center">
+      <div class="row d-flex align-items-center">
+        <Box className="col">
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -26,10 +27,32 @@ function RippleCard(props) {
           >
             <Text fontWeight="bold">{props.title}</Text>
           </a>
-        </div>
-        <div class="card__face card__face--back p-2 d-flex justify-content-center align-items-center">
-          <Text>Some cool text about ripplit</Text>
-        </div>
+          </Box>
+        <Text className="mx-2 col" fontSize="12px">
+          {`$${5}`}
+          <br />
+          raised
+        </Text>
+        <Text className="mx-2 col" fontSize="12px">
+          5<br />
+          views
+        </Text>
+        <Text className="mx-2 col" fontSize="12px">
+          3<br />
+          generations
+        </Text>
+        <Text className="mx-2 col" fontSize="12px">
+          3<br />
+          visitors
+        </Text>
+        <Text className="mx-2 col" fontSize="12px">
+          3<br />
+          depth
+        </Text>
+        <Text className="mx-2 col" fontSize="12px">
+          3<br />
+          raised
+        </Text>
       </div>
     </Card>
   );
