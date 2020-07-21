@@ -39,7 +39,7 @@ export default function About(props) {
             background="rgba(255, 247, 167, 0.8)"
             textAlign="left"
           >
-            <Box className="my-sm-5 pb-3 mx-2">
+            <Box className="my-sm-5 pb-3 mx-2 mx-md-3">
               <Heading className="mt-3" fontWeight="light">
                 Frequently Asked Questions
               </Heading>
