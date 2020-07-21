@@ -4,7 +4,6 @@ import Card from "./Card";
 import "./RippleCard.css";
 
 function RippleCard(props) {
-  console.log('RippleCard', props);
   return (
     <Card
       className="ripple-card mt-2 p-2 justify-content-around"
