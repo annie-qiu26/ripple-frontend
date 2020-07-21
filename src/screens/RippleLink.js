@@ -166,11 +166,11 @@ function RippleLink(props) {
       >
         <div class="container">
           {WelcomeMessage()}
-          <div class="row">
+          <div class="row h-50">
             <div class="stats-container col text-md-left">
               {ResponsiveStatsCards()}
             </div>
-            <div class="orgs-container col d-flex h-50">
+            <div class="orgs-container col d-flex">
               {Organizations()}
             </div>
           </div>

@@ -4,6 +4,7 @@ import Card from "./Card";
 import "./RippleCard.css";
 
 function RippleCard(props) {
+  console.log('RippleCard', props);
   return (
     <Card
       className="ripple-card mt-2 p-2 justify-content-around"
@@ -15,35 +16,35 @@ function RippleCard(props) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={`ripplits/${props.rootId}`}
+            href={`/ripplits/${props.ripple.rootId}`}
           >
-            <Text fontWeight="bold">{props.title}</Text>
+            <Text fontWeight="bold">{props.ripple.title}</Text>
           </a>
           </Box>
-        <Text className="stat mx-2 col" fontSize="12px">
-          {`$${5}`}
+        <Text className="text-center stat mx-2 col" fontSize="12px">
+          {`$${props.ripple.total_raised}`}
           <br />
           raised
         </Text>
-        <Text className="stat mx-2 col" fontSize="12px">
-          5<br />
+        <Text className="text-center stat mx-2 col" fontSize="12px">
+          {`${props.ripple.total_views}`}
+          <br />
           views
         </Text>
-        <Text className="stat mx-2 col" fontSize="12px">
-          3<br />
-          generations
-        </Text>
-        <Text className="stat mx-2 col" fontSize="12px">
-          3<br />
+        <Text className="text-center stat mx-2 col" fontSize="12px">
+          {`${props.ripple.total_links}`}
+          <br />
           visitors
         </Text>
-        <Text className="stat mx-2 col" fontSize="12px">
-          3<br />
+        <Text className="text-center stat mx-2 col" fontSize="12px">
+          {`${props.ripple.total_depth}`}
+          <br />
           depth
         </Text>
-        <Text className="stat mx-2 col" fontSize="12px">
-          3<br />
-          raised
+        <Text className="text-center stat mx-2 col" fontSize="12px">
+          {`${props.ripple.total_miles}`}
+          <br />
+          miles
         </Text>
       </div>
     </Card>

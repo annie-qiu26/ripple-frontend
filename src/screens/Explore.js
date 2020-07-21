@@ -62,7 +62,7 @@ function Explore(props) {
       .catch(() => {
         history.push("/404");
       });
-  });
+  }, [props]);
 
   if (loading) {
     return <div />;
@@ -85,9 +85,8 @@ function Explore(props) {
           {ripples?.map((ripple) => (
             <div className="row mt-1">
               <RippleCard
+                ripple={ripple}
                 key={ripple.root_id}
-                rootId={ripple.root_id}
-                title={ripple.title}
               />
             </div>
           ))}
