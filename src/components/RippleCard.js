@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, Box } from "@chakra-ui/core";
 import Card from "./Card";
 import "./RippleCard.css";

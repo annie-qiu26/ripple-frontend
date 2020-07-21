@@ -3,7 +3,7 @@ import { Flex, Heading, Box, Input, IconButton } from "@chakra-ui/core";
 import { useHistory } from "react-router-dom";
 import RippleCard from "../components/RippleCard";
 
-import { listRipples, searchRipples } from "../api/ripple";
+import { searchRipples } from "../api/ripple";
 
 import "./Explore.css";
 

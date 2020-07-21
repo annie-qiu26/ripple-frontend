@@ -23,7 +23,7 @@ function RippleStatCard(props) {
           <Text>{props.field}</Text>
         </div>
         <div class="card__face card__face--back p-2 d-flex justify-content-center align-items-center">
-          <Text>Some cool text about ripplit</Text>
+          <Text>{props.description}</Text>
         </div>
       </div>
     </Card>

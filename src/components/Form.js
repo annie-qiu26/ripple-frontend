@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {
   Checkbox,
-  FormErrorMessage,
   FormLabel,
   FormControl,
   Text,
@@ -27,7 +26,6 @@ function Form() {
     handleSubmit,
     errors,
     register,
-    formState,
     control,
     setError
   } = useForm();

@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./components/Header";
-import Card from "./components/Card";
 import Home from "./screens/Home";
 import Create from "./screens/Create";
 import Explore from "./screens/Explore";
