@@ -16,7 +16,7 @@ function RippleCard(props) {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={`/ripplits/${props.ripple.rootId}`}
+            href={`/ripplits/${props.ripple.root_id}`}
           >
             <Text fontWeight="bold">{props.ripple.title}</Text>
           </a>
