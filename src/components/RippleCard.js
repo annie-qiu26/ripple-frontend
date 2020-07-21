@@ -4,19 +4,11 @@ import Card from "./Card";
 import "./RippleCard.css";
 
 function RippleCard(props) {
-  const [flipped, setFlipped] = useState(false);
-
-  const flipCard = () => {
-    setFlipped(!flipped);
-  };
-
   return (
     <Card
       className="ripple-card mt-2 p-2 justify-content-around"
-      as="button"
       display="flex"
       alignItems="center"
-      onClick={flipCard}
     >
       <div class="row d-flex align-items-center">
         <Box className="col">
@@ -28,28 +20,28 @@ function RippleCard(props) {
             <Text fontWeight="bold">{props.title}</Text>
           </a>
           </Box>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           {`$${5}`}
           <br />
           raised
         </Text>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           5<br />
           views
         </Text>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           3<br />
           generations
         </Text>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           3<br />
           visitors
         </Text>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           3<br />
           depth
         </Text>
-        <Text className="mx-2 col" fontSize="12px">
+        <Text className="stat mx-2 col" fontSize="12px">
           3<br />
           raised
         </Text>

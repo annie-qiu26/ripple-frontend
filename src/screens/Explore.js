@@ -10,7 +10,6 @@ import "./Explore.css";
 function Explore(props) {
   const [loading, setLoading] = useState(true);
   const [ripples, setRipples] = useState(undefined);
-  const [searchError, setSearchError] = useState(false);
 
   const history = useHistory();
   const searchRef = useRef();
@@ -29,6 +28,7 @@ function Explore(props) {
           onSubmit={handleSearch}
         >
           <Input
+            className="search-input"
             background="#F3F3F3"
             placeholder="Search for ripples"
             borderRadius="32px"
@@ -41,7 +41,7 @@ function Explore(props) {
             className="explore-search-button"
             icon="search"
             borderRadius="32px"
-            isLoading={false}
+            isLoading={loading}
             onSubmit={handleSearch}
             type="submit"
           />
