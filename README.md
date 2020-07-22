@@ -3,6 +3,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Dependencies
 Run `npm install` to install all the pacakges.
 
+### Configurations
+Create a .env file in the root directory. Copy and paste the contents here:
+```
+REACT_APP_HOSTNAME="http://localhost:5000"
+REACT_APP_PRODUCTION=false
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -24,10 +31,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Configurations
-Create a .env file in the root directory. Copy and paste the contents here:
-```
-REACT_APP_HOSTNAME="http://localhost:5000"
-REACT_APP_PRODUCTION=false
-```
