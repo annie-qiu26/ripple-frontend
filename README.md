@@ -22,7 +22,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### .env file 
+### Configurations
 Create a .env file in the root directory. Copy and paste the contents here:
 ```
 REACT_APP_HOSTNAME="http://localhost:5000"
